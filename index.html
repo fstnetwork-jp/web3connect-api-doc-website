@@ -425,22 +425,17 @@
       <div class="content">
         <h1 id='overview'>Overview</h1><h2 id='http-end-point-base-url'>HTTP End Point (Base URL)</h2><div class="highlight"><pre class="highlight plaintext"><code>https://dev.web3connect.jp/rest/v1
 </code></pre></div><h2 id='http-headers-required-in-the-requests'>HTTP Headers required in the requests</h2>
-<blockquote>
 <p>Especially for the APIs that need to know the identity of the client (requester)</p>
-</blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;
 </code></pre></div>
-<blockquote>
-<p>ACCESS_TOKEN is in JWT format.</p>
-</blockquote>
+<p><code>ACCESS_TOKEN</code> is in JWT format.</p>
 <h2 id='access_token-v-s-api_key_secret'><code>ACCESS_TOKEN</code> v.s. <code>API_KEY_SECRET</code></h2>
-<p><code>ACCESS_TOKEN</code> is used for common APIs, which must be used in <code>Authorization</code> header in HTTP request.</p>
-
-<p><code>API_KEY_SECRET</code> is used for critical APIs, such as refreshing <code>ACCESS_TOKEN</code> and generating one-time-use javascript code.</p>
-
-<p><code>API_KEY_SECRET</code> is never used in the header in HTTP request.</p>
-
-<p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p>
+<ul>
+<li><p><code>ACCESS_TOKEN</code> is used for common APIs, which must be used in <code>Authorization</code> header in HTTP request.</p></li>
+<li><p><code>API_KEY_SECRET</code> is used for critical APIs, such as refreshing <code>ACCESS_TOKEN</code> and generating one-time-use javascript code.</p></li>
+<li><p><code>API_KEY_SECRET</code> is never used in the header in HTTP request.</p></li>
+<li><p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p></li>
+</ul>
 
 <p><strong>DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.</strong></p>
 <h2 id='common-response-body-format'>Common Response Body Format</h2><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
@@ -449,9 +444,7 @@
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span> <span class="c1">// null, Error Message in String or Error Message in Object</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='auth-api'>Auth API</h1>
-<blockquote>
 <p><strong>Please obtain your API Key Secret from Web3Connect beforehand.</strong></p>
-</blockquote>
 
 <p>An API Key Secret can be used to obtain the access token and confirmation token.</p>
 <h2 id='refresh-obtain-access-token-with-api-key-secret'>Refresh (Obtain) Access Token with API Key Secret</h2>
@@ -477,10 +470,6 @@
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
-<blockquote>
-<p><strong>This API must be called in the backend, but not in the frontend.</strong></p>
-</blockquote>
-
 <ul>
 <li><code>POST</code></li>
 <li><code>/auth/account/association/generate_web3connect_button_js</code></li>
@@ -508,16 +497,19 @@
 
 <p>For example, <code>userId=xxx</code> in the redirect url&#39;s query param (any query param is allowed for the organization).</p>
 
+<blockquote>
 <ol>
 <li>Embed the JavaScript code in to the organization&#39;s web page</li>
 </ol>
 
 <p>The organization needs to embed the function code body in the <code>&lt;script&gt;...&lt;/script&gt;</code> section in the header of the web page,<br>
 and bind the onclick event to the button like :</p>
+</blockquote>
 <div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"event.preventDefault();globalWeb3ConnectButtonOnClick();"</span><span class="nt">&gt;</span>
   Web3Connect
 <span class="nt">&lt;/button&gt;</span>
 </code></pre></div>
+<blockquote>
 <ol>
 <li>Let the end-user walk through the association process</li>
 </ol>
@@ -529,9 +521,11 @@ and bind the onclick event to the button like :</p>
 </ol>
 
 <p>And finally, a url (the adjusted redirect url) :</p>
+</blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>GET
 https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x1234567890123456789012345678901234567890
 </code></pre></div>
+<blockquote>
 <p>will be opened by the end-user&#39;s web browser (a query param <code>id_wallet_address</code> is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization&#39;s internal system process.</p>
 
 <ol>
@@ -539,16 +533,13 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </ol>
 
 <p>The organization will need to store the <code>id_wallet_address</code> of the end-user inside their database.</p>
+</blockquote>
 
-<blockquote>
 <p>Through this process, the organization will only know the <code>id_wallet_address</code> of an end-user, but not its email.</p>
 
 <p>An ID Wallet will be automatically created if the end-user&#39;s info does not exist in Web3Connect.</p>
-</blockquote>
 <h2 id='import-existing-end-user-with-its-email-not-recommended'>Import Existing End-user with its email (Not recommended)</h2>
-<blockquote>
 <p>This implies that the end-user already knows which email is used for login.</p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -577,9 +568,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </code></pre></div><h1 id='verify-api-for-organization-account'>Verify API (for Organization Account)</h1>
 <p>Web3Connect will support the verification process during the creation of the organization account.</p>
 <h2 id='verify-phone-step-1'>Verify Phone Step 1</h2>
-<blockquote>
 <p>This will send a code to the mobile.</p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -606,9 +595,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='verify-phone-step-2'>Verify Phone Step 2</h2>
-<blockquote>
 <p><strong>Please take the <code>tmp_token</code> from the response in step 1.</strong></p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -633,13 +620,11 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='verify-domain-step-1'>Verify Domain Step 1</h2>
-<blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
 <p><code>domain</code> in the response is from the value during the sign-up process of the Organization Account.</p>
 
 <p>Please set the value of <code>txt_record</code> under the domain&#39;s TXT record (the domain is already set during the sign-up process)</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -659,13 +644,11 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='verify-domain-step-2'>Verify Domain Step 2</h2>
-<blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
 <p>This step checks the txt record of the domain.</p>
 
 <p>Please set the value of <code>txt_record</code> under the domain&#39;s TXT record in step 1.</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -682,9 +665,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='account-api'>Account API</h1><h2 id='get-public-account-info-by-id-wallet-address'>Get Public Account Info by ID Wallet Address</h2>
-<blockquote>
 <p>Please replace the <code>&lt;id_wallet_address&gt;</code> section in the url with the ID Wallet Address (e.g. <code>0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef</code>)</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -764,14 +745,12 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='nft-api'>NFT API</h1><h2 id='mint-nft-by-organization-account'>Mint NFT by Organization Account</h2>
-<blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
 <p>Organization Account&#39;s domain must be verified beforehand.</p>
 
 <p>Please replace <code>&lt;holder_id_wallet_address&gt;</code> section in the url to the id_wallet_address of the end-user account (who will become the holder of the newly minted nft).<br>
 (e.g. <code>0x1234567890123456789012345678901234567890</code>)</p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -942,7 +921,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='fetch-nft-info'>Fetch NFT info</h2>
-<blockquote>
 <p>If the NFT&#39;s visibility is <code>private</code>, then only the holder or minter can check it.</p>
 
 <p>If the NFT&#39;s visibility is <code>public</code>, then any account can check it.</p>
@@ -950,7 +928,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
 
 <p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -967,7 +944,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='list-nfts-being-held-by-an-id-wallet-end-user-account'>List NFTs being held by an ID Wallet (End-user Account)</h2>
-<blockquote>
 <p>Please replace the value <code>&lt;ID_WALLET_ADDRESS&gt;</code> to the actual one in the url.</p>
 
 <p><code>perPageItemNum</code> query param is for setting how many NFT objects per page. Default value is <code>10</code>.</p>
@@ -977,7 +953,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
 
 <p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -996,7 +971,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </code></pre></div>
 <p><strong>Only the NFTs visible by the requester (http client) will be returned.</strong></p>
 <h2 id='list-nfts-minted-by-organization-account-minter'>List NFTs minted by Organization Account (Minter)</h2>
-<blockquote>
 <p>Only the minter (organization account) can perform this action.</p>
 
 <p><code>perPageItemNum</code> query param is for setting how many NFT objects per page.</p>
@@ -1006,7 +980,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
 
 <p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
@@ -1023,11 +996,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='toggle-nft-visibility'>Toggle NFT visibility</h2>
-<blockquote>
 <p><strong>Only the holder (end-user account) and the minter (organization account) can perform this action</strong>.</p>
 
 <p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
-</blockquote>
 
 <ul>
 <li><code>PUT</code></li>
@@ -1051,7 +1022,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='search-public-nfts-by-field-matching-search'>Search Public NFTs by field-matching search</h2>
-<blockquote>
 <p>This can only find public NFTs.</p>
 
 <p><code>perPageItemNum</code> query param is for setting how many NFT objects per page.</p>
@@ -1061,7 +1031,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
 
 <p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -1115,11 +1084,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p>Please refer to the previous one for the request/response body format.</p>
 </blockquote>
 <h2 id='generate-qr-code-for-nft-verification-by-the-holder-nft-verification-step-1'>Generate QR Code for NFT verification by the holder (NFT Verification Step 1)</h2>
-<blockquote>
 <p><strong>Only the holder (end-user account) can perform this action</strong>.</p>
 
 <p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -1127,13 +1094,13 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
-<blockquote>
 <p>The holder only needs to post the current gps location of its device to the web3connect api.</p>
 
 <p>The QR Code in the result is base64 encoded image.</p>
 
 <p>The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.</p>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
@@ -1156,13 +1123,11 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2'>Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</h2>
-<blockquote>
 <p>The scanner scanned the qrcode.</p>
 
 <p>The query param <strong><code>CODE</code></strong> is exactly from the qrcode image, the decoded content of the qrcode image is this <strong><code>CODE</code></strong>.</p>
 
 <p><strong>And the requester (scanner) must add location information into the request body</strong></p>
-</blockquote>
 
 <ul>
 <li><code>POST</code></li>
@@ -1192,9 +1157,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='poll-nft-verification-result'>Poll NFT Verification result</h2>
-<blockquote>
 <p>Put the <code>code</code> from the response of step1 into the query param</p>
-</blockquote>
 
 <ul>
 <li><code>GET</code></li>
