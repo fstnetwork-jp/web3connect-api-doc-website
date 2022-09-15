@@ -30,23 +30,23 @@ https://dev.web3connect.jp/rest/v1
 
 ## HTTP Headers required in the requests
 
-> Especially for the APIs that need to know the identity of the client (requester)
+Especially for the APIs that need to know the identity of the client (requester)
 
 ```
 Authorization: Bearer <ACCESS_TOKEN>
 ```
 
-> ACCESS_TOKEN is in JWT format.
+`ACCESS_TOKEN` is in JWT format.
 
 ## `ACCESS_TOKEN` v.s. `API_KEY_SECRET`
 
-`ACCESS_TOKEN` is used for common APIs, which must be used in `Authorization` header in HTTP request.
+- `ACCESS_TOKEN` is used for common APIs, which must be used in `Authorization` header in HTTP request.
 
-`API_KEY_SECRET` is used for critical APIs, such as refreshing `ACCESS_TOKEN` and generating one-time-use javascript code.
+- `API_KEY_SECRET` is used for critical APIs, such as refreshing `ACCESS_TOKEN` and generating one-time-use javascript code.
 
-`API_KEY_SECRET` is never used in the header in HTTP request.
+- `API_KEY_SECRET` is never used in the header in HTTP request.
 
-`API_KEY_SECRET` can be obtained from Web3Connect, and it should be stored in a safe place by the organization.
+- `API_KEY_SECRET` can be obtained from Web3Connect, and it should be stored in a safe place by the organization.
 
 **DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.**
 
@@ -62,7 +62,7 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 # Auth API
 
-> **Please obtain your API Key Secret from Web3Connect beforehand.**
+**Please obtain your API Key Secret from Web3Connect beforehand.**
 
 An API Key Secret can be used to obtain the access token and confirmation token.
 
@@ -94,8 +94,6 @@ An API Key Secret can be used to obtain the access token and confirmation token.
 
 ## Generate Web3Connect Button OnClick JavaScript function code body
 
-> **This API must be called in the backend, but not in the frontend.**
-
 - `POST`
 - `/auth/account/association/generate_web3connect_button_js`
 - **No Authorization Header required**
@@ -123,10 +121,10 @@ In `redirect_url` of the request body, the organization should include the ident
 
 For example, `userId=xxx` in the redirect url's query param (any query param is allowed for the organization).
 
-1. Embed the JavaScript code in to the organization's web page
+> 1. Embed the JavaScript code in to the organization's web page
 
-The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
-and bind the onclick event to the button like :
+> The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
+> and bind the onclick event to the button like :
 
 ```html
 <button onclick="event.preventDefault();globalWeb3ConnectButtonOnClick();">
@@ -134,32 +132,32 @@ and bind the onclick event to the button like :
 </button>
 ```
 
-2. Let the end-user walk through the association process
+> 2. Let the end-user walk through the association process
 
-Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the `API_KEY_SECRET`).
+> Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the `API_KEY_SECRET`).
 
-3. The organization process the callback http request (`redirect_url`)
+> 3. The organization process the callback http request (`redirect_url`)
 
-And finally, a url (the adjusted redirect url) :
+> And finally, a url (the adjusted redirect url) :
 
 ```
 GET
 https://company.com/abc/def?g=h&userId=xxx&id_wallet_address=0x1234567890123456789012345678901234567890
 ```
 
-will be opened by the end-user's web browser (a query param `id_wallet_address` is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization's internal system process.
+> will be opened by the end-user's web browser (a query param `id_wallet_address` is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization's internal system process.
 
-4. The organization should store the `id_wallet_address` of the end-user
+> 4. The organization should store the `id_wallet_address` of the end-user
 
-The organization will need to store the `id_wallet_address` of the end-user inside their database.
+> The organization will need to store the `id_wallet_address` of the end-user inside their database.
 
-> Through this process, the organization will only know the `id_wallet_address` of an end-user, but not its email.
+Through this process, the organization will only know the `id_wallet_address` of an end-user, but not its email.
 
-> An ID Wallet will be automatically created if the end-user's info does not exist in Web3Connect.
+An ID Wallet will be automatically created if the end-user's info does not exist in Web3Connect.
 
 ## Import Existing End-user with its email (Not recommended)
 
-> This implies that the end-user already knows which email is used for login.
+This implies that the end-user already knows which email is used for login.
 
 - `POST`
 - `/account/import`
@@ -192,7 +190,7 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Verify Phone Step 1
 
-> This will send a code to the mobile.
+This will send a code to the mobile.
 
 - `POST`
 - `/verify/phone/step1`
@@ -221,7 +219,7 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Verify Phone Step 2
 
-> **Please take the `tmp_token` from the response in step 1.**
+**Please take the `tmp_token` from the response in step 1.**
 
 - `POST`
 - `/verify/phone/step2`
@@ -248,11 +246,11 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Verify Domain Step 1
 
-> **Only Organization Account can perform this action.**
+**Only Organization Account can perform this action.**
 
-> `domain` in the response is from the value during the sign-up process of the Organization Account.
+`domain` in the response is from the value during the sign-up process of the Organization Account.
 
-> Please set the value of `txt_record` under the domain's TXT record (the domain is already set during the sign-up process)
+Please set the value of `txt_record` under the domain's TXT record (the domain is already set during the sign-up process)
 
 - `GET`
 - `/verify/domain/step1`
@@ -273,11 +271,11 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Verify Domain Step 2
 
-> **Only Organization Account can perform this action.**
+**Only Organization Account can perform this action.**
 
-> This step checks the txt record of the domain.
+This step checks the txt record of the domain.
 
-> Please set the value of `txt_record` under the domain's TXT record in step 1.
+Please set the value of `txt_record` under the domain's TXT record in step 1.
 
 - `GET`
 - `/verify/domain/step2`
@@ -297,7 +295,7 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Get Public Account Info by ID Wallet Address
 
-> Please replace the `<id_wallet_address>` section in the url with the ID Wallet Address (e.g. `0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef`)
+Please replace the `<id_wallet_address>` section in the url with the ID Wallet Address (e.g. `0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef`)
 
 - `GET`
 - `/account/id_wallet/<id_wallet_address>/public_info`
@@ -381,12 +379,12 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Mint NFT by Organization Account
 
-> **Only Organization Account can perform this action.**
+**Only Organization Account can perform this action.**
 
-> Organization Account's domain must be verified beforehand.
+Organization Account's domain must be verified beforehand.
 
-> Please replace `<holder_id_wallet_address>` section in the url to the id_wallet_address of the end-user account (who will become the holder of the newly minted nft).  
-> (e.g. `0x1234567890123456789012345678901234567890`)
+Please replace `<holder_id_wallet_address>` section in the url to the id_wallet_address of the end-user account (who will become the holder of the newly minted nft).  
+(e.g. `0x1234567890123456789012345678901234567890`)
 
 - `POST`
 - `/nft/mint/to/<holder_id_wallet_address>`
@@ -559,13 +557,13 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Fetch NFT info
 
-> If the NFT's visibility is `private`, then only the holder or minter can check it.
+If the NFT's visibility is `private`, then only the holder or minter can check it.
 
-> If the NFT's visibility is `public`, then any account can check it.
+If the NFT's visibility is `public`, then any account can check it.
 
-> Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
+Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
 
-> Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
+Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
 
 - `GET`
 - `/nft/<token_id>`
@@ -583,15 +581,15 @@ Web3Connect will support the verification process during the creation of the org
 
 ## List NFTs being held by an ID Wallet (End-user Account)
 
-> Please replace the value `<ID_WALLET_ADDRESS>` to the actual one in the url.
+Please replace the value `<ID_WALLET_ADDRESS>` to the actual one in the url.
 
-> `perPageItemNum` query param is for setting how many NFT objects per page. Default value is `10`.
+`perPageItemNum` query param is for setting how many NFT objects per page. Default value is `10`.
 
-> `pageNum` query param starts from `1`, for listing the NFT objects of the n-th page. Default value is `1`.
+`pageNum` query param starts from `1`, for listing the NFT objects of the n-th page. Default value is `1`.
 
-> `order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
+`order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
 
-> Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
+Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
 
 - `GET`
 - `/nft/held_by_id_wallet/<ID_WALLET_ADDRESS>?perPageItemNum=10&pageNum=1&order=asc`
@@ -611,15 +609,15 @@ Web3Connect will support the verification process during the creation of the org
 
 ## List NFTs minted by Organization Account (Minter)
 
-> Only the minter (organization account) can perform this action.
+Only the minter (organization account) can perform this action.
 
-> `perPageItemNum` query param is for setting how many NFT objects per page.
+`perPageItemNum` query param is for setting how many NFT objects per page.
 
-> `pageNum` query param starts from `1`, for listing the NFT objects of the n-th page.
+`pageNum` query param starts from `1`, for listing the NFT objects of the n-th page.
 
-> `order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
+`order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
 
-> Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
+Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
 
 - `GET`
 - `/nft/minted_by_me?perPageItemNum=10&pageNum=1&order=asc`
@@ -637,9 +635,9 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Toggle NFT visibility
 
-> **Only the holder (end-user account) and the minter (organization account) can perform this action**.
+**Only the holder (end-user account) and the minter (organization account) can perform this action**.
 
-> Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
+Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
 
 - `PUT`
 - `/nft/<token_id>/visibility`
@@ -665,15 +663,15 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Search Public NFTs by field-matching search
 
-> This can only find public NFTs.
+This can only find public NFTs.
 
-> `perPageItemNum` query param is for setting how many NFT objects per page.
+`perPageItemNum` query param is for setting how many NFT objects per page.
 
-> `pageNum` query param starts from `1`, for listing the NFT objects of the n-th page.
+`pageNum` query param starts from `1`, for listing the NFT objects of the n-th page.
 
-> `order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
+`order` query param is for controlling sort order based on `created_at` of the NFTs, it can be `desc` or `asc`, default value is `asc`.
 
-> Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
+Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
 
 - `POST`
 - `/nft/search?perPageItemNum=10&pageNum=1&order=asc`
@@ -727,19 +725,19 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Generate QR Code for NFT verification by the holder (NFT Verification Step 1)
 
-> **Only the holder (end-user account) can perform this action**.
+**Only the holder (end-user account) can perform this action**.
 
-> Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
+Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
 
 - `POST`
 - `/nft/<token_id>/verification/qr_code/step1`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-> The holder only needs to post the current gps location of its device to the web3connect api.
+The holder only needs to post the current gps location of its device to the web3connect api.
 
-> The QR Code in the result is base64 encoded image.
+The QR Code in the result is base64 encoded image.
 
-> The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.
+The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
@@ -768,11 +766,11 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)
 
-> The scanner scanned the qrcode.
+The scanner scanned the qrcode.
 
-> The query param **`CODE`** is exactly from the qrcode image, the decoded content of the qrcode image is this **`CODE`**.
+The query param **`CODE`** is exactly from the qrcode image, the decoded content of the qrcode image is this **`CODE`**.
 
-> **And the requester (scanner) must add location information into the request body**
+**And the requester (scanner) must add location information into the request body**
 
 - `POST`
 - `/nft/verification/qr_code/step2?c=<CODE>`
@@ -804,7 +802,7 @@ Web3Connect will support the verification process during the creation of the org
 
 ## Poll NFT Verification result
 
-> Put the `code` from the response of step1 into the query param
+Put the `code` from the response of step1 into the query param
 
 - `GET`
 - `/nft/verification/qr_code/result?c=<CODE>`
