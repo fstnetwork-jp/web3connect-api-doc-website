@@ -3,7 +3,6 @@ title: Web3Connect RESTful API Doc
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
-  - html
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
