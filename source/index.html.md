@@ -72,7 +72,7 @@ An API Key Secret can be used to obtain the access token and confirmation token.
 - `/auth/account/access_token/refresh`
 - **No Authorization Header required**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -80,7 +80,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -89,8 +89,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 # Account Association & End-user Import
 
@@ -102,7 +100,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/auth/account/association/generate_web3connect_button_js`
 - **No Authorization Header required**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -111,7 +109,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -159,8 +157,6 @@ The organization will need to store the `id_wallet_address` of the end-user insi
 
 > An ID Wallet will be automatically created if the end-user's info does not exist in Web3Connect.
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Import Existing End-user with its email (Not recommended)
 
 > This implies that the end-user already knows which email is used for login.
@@ -169,7 +165,7 @@ The organization will need to store the `id_wallet_address` of the end-user insi
 - `/account/import`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -177,7 +173,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -189,8 +185,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 # Verify API (for Organization Account)
 
@@ -204,7 +198,7 @@ Web3Connect will support the verification process during the creation of the org
 - `/verify/phone/step1`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -212,7 +206,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -225,8 +219,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Verify Phone Step 2
 
 > **Please take the `tmp_token` from the response in step 1.**
@@ -235,7 +227,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/verify/phone/step2`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -244,7 +236,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -253,8 +245,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Verify Domain Step 1
 
@@ -268,7 +258,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/verify/domain/step1`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -280,8 +270,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Verify Domain Step 2
 
@@ -295,7 +283,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/verify/domain/step2`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -304,8 +292,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 # Account API
 
@@ -317,7 +303,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/account/id_wallet/<id_wallet_address>/public_info`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -335,15 +321,13 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Get My Info
 
 - `GET`
 - `/account/my_info`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -393,8 +377,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 # NFT API
 
 ## Mint NFT by Organization Account
@@ -410,7 +392,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/mint/to/<holder_id_wallet_address>`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -490,7 +472,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -575,8 +557,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Fetch NFT info
 
 > If the NFT's visibility is `private`, then only the holder or minter can check it.
@@ -591,7 +571,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/<token_id>`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -600,8 +580,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## List NFTs being held by an ID Wallet (End-user Account)
 
@@ -619,7 +597,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/held_by_id_wallet/<ID_WALLET_ADDRESS>?perPageItemNum=10&pageNum=1&order=asc`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -630,8 +608,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 ```
 
 **Only the NFTs visible by the requester (http client) will be returned.**
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## List NFTs minted by Organization Account (Minter)
 
@@ -649,7 +625,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/minted_by_me?perPageItemNum=10&pageNum=1&order=asc`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -658,8 +634,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Toggle NFT visibility
 
@@ -671,7 +645,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/<token_id>/visibility`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -679,7 +653,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -688,8 +662,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Search Public NFTs by field-matching search
 
@@ -707,7 +679,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/search?perPageItemNum=10&pageNum=1&order=asc`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 // each field can be set to undefined for ignoring the field matching
@@ -735,7 +707,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -745,8 +717,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Search NFTs minted by me (Organization Account) by field-matching-search
 
 - `POST`
@@ -754,8 +724,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
 > Please refer to the previous one for the request/response body format.
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Generate QR Code for NFT verification by the holder (NFT Verification Step 1)
 
@@ -773,7 +741,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 
 > The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -785,7 +753,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -797,8 +765,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
 
 ## Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)
 
@@ -812,7 +778,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/verification/qr_code/step2?c=<CODE>`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Request Body JSON Sample (`Content-Type: application/json`)
+> Request Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 // this should be the current location of the scanner
@@ -824,7 +790,7 @@ Request Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -836,8 +802,6 @@ Response Body JSON Sample (`Content-Type: application/json`)
 }
 ```
 
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
-
 ## Poll NFT Verification result
 
 > Put the `code` from the response of step1 into the query param
@@ -846,7 +810,7 @@ Response Body JSON Sample (`Content-Type: application/json`)
 - `/nft/verification/qr_code/result?c=<CODE>`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
-Response Body JSON Sample (`Content-Type: application/json`)
+> Response Body JSON Sample (`Content-Type: application/json`)
 
 ```js
 {
@@ -857,5 +821,3 @@ Response Body JSON Sample (`Content-Type: application/json`)
   "error": null
 }
 ```
-
-<a href="#web3connect-restful-api-doc">[Back to top]</a>
