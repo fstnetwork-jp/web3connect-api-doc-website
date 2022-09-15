@@ -126,9 +126,19 @@ The organization needs to embed the function code body in the `<script>...</scri
 and bind the onclick event to the button like :
 
 ```html
-<button onclick="event.preventDefault();globalWeb3ConnectButtonOnClick();">
-  Web3Connect
-</button>
+<head>
+  <script>
+    /* function globalWeb3ConnectButtonOnClick() {
+    } */
+    /* from the result of the previous API call */
+  </script>
+</head>
+
+<body>
+  <button onclick="event.preventDefault();globalWeb3ConnectButtonOnClick();">
+    Web3Connect
+  </button>
+</body>
 ```
 
 ## (Cont'd) Let the end-user walk through the association process
