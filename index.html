@@ -481,6 +481,8 @@
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
+<p>This API helps generating required JavaScript code for the Web3Connect button in organization&#39;s web page or mobile app.</p>
+
 <ul>
 <li><code>POST</code></li>
 <li><code>/auth/account/association/generate_web3connect_button_js</code></li>
@@ -534,7 +536,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </code></pre></div>
 <p>The url will be opened by the end-user&#39;s web browser (a query param <code>id_wallet_address</code> is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization&#39;s internal system process.</p>
 <h2 id='cont-39-d-the-organization-should-store-the-id_wallet_address-of-the-end-user'>(Cont&#39;d) The organization should store the <code>id_wallet_address</code> of the end-user</h2>
-<p>The organization will need to store the <code>id_wallet_address</code> of the end-user inside their database.</p>
+<p>The organization will need to store the <code>id_wallet_address</code> of the end-user inside their database or system.</p>
 
 <p>Through this process, the organization will only know the <code>id_wallet_address</code> of an end-user, but not its email.</p>
 
