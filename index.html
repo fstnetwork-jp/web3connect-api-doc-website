@@ -461,20 +461,22 @@
 <li><strong>No Authorization Header required</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ACCESS_TOKEN&gt;</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
+</code></pre></div><h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
 <blockquote>
 <p><strong>This API must be called in the backend, but not in the frontend.</strong></p>
 </blockquote>
@@ -485,13 +487,17 @@
 <li><strong>No Authorization Header required</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span> <span class="c1">// YOUR API KEY SECRET,</span>
   <span class="dl">"</span><span class="s2">redirect_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://company.com/abc/def?g=h&amp;userId=xxx</span><span class="dl">"</span> <span class="c1">// For the redirection after the end-user finishes the association process</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">function globalWeb3ConnectButtonOnClick() {...}</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// JavaScript function code body</span>
@@ -539,8 +545,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 
 <p>An ID Wallet will be automatically created if the end-user&#39;s info does not exist in Web3Connect.</p>
 </blockquote>
-
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
 <h2 id='import-existing-end-user-with-its-email-not-recommended'>Import Existing End-user with its email (Not recommended)</h2>
 <blockquote>
 <p>This implies that the end-user already knows which email is used for login.</p>
@@ -552,12 +556,16 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -566,9 +574,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h1 id='verify-api-for-organization-account'>Verify API (for Organization Account)</h1>
+</code></pre></div><h1 id='verify-api-for-organization-account'>Verify API (for Organization Account)</h1>
 <p>Web3Connect will support the verification process during the creation of the organization account.</p>
 <h2 id='verify-phone-step-1'>Verify Phone Step 1</h2>
 <blockquote>
@@ -581,12 +587,16 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">+8860912345678</span><span class="dl">"</span> <span class="c1">// a valid mobile phone number in E.164 format</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -595,9 +605,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='verify-phone-step-2'>Verify Phone Step 2</h2>
+</code></pre></div><h2 id='verify-phone-step-2'>Verify Phone Step 2</h2>
 <blockquote>
 <p><strong>Please take the <code>tmp_token</code> from the response in step 1.</strong></p>
 </blockquote>
@@ -608,21 +616,23 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">tmp_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">token string</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// from step 1</span>
   <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123456</span><span class="dl">"</span> <span class="c1">// the verification code received by the phone</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// phone verified</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='verify-domain-step-1'>Verify Domain Step 1</h2>
+</code></pre></div><h2 id='verify-domain-step-1'>Verify Domain Step 1</h2>
 <blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
@@ -637,7 +647,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -646,9 +658,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='verify-domain-step-2'>Verify Domain Step 2</h2>
+</code></pre></div><h2 id='verify-domain-step-2'>Verify Domain Step 2</h2>
 <blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
@@ -663,15 +673,15 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// domain verified</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h1 id='account-api'>Account API</h1><h2 id='get-public-account-info-by-id-wallet-address'>Get Public Account Info by ID Wallet Address</h2>
+</code></pre></div><h1 id='account-api'>Account API</h1><h2 id='get-public-account-info-by-id-wallet-address'>Get Public Account Info by ID Wallet Address</h2>
 <blockquote>
 <p>Please replace the <code>&lt;id_wallet_address&gt;</code> section in the url with the ID Wallet Address (e.g. <code>0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef</code>)</p>
 </blockquote>
@@ -682,7 +692,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -696,16 +708,16 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='get-my-info'>Get My Info</h2>
+</code></pre></div><h2 id='get-my-info'>Get My Info</h2>
 <ul>
 <li><code>GET</code></li>
 <li><code>/account/my_info</code></li>
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -751,9 +763,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h1 id='nft-api'>NFT API</h1><h2 id='mint-nft-by-organization-account'>Mint NFT by Organization Account</h2>
+</code></pre></div><h1 id='nft-api'>NFT API</h1><h2 id='mint-nft-by-organization-account'>Mint NFT by Organization Account</h2>
 <blockquote>
 <p><strong>Only Organization Account can perform this action.</strong></p>
 
@@ -769,7 +779,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -846,7 +858,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -927,9 +941,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='fetch-nft-info'>Fetch NFT info</h2>
+</code></pre></div><h2 id='fetch-nft-info'>Fetch NFT info</h2>
 <blockquote>
 <p>If the NFT&#39;s visibility is <code>private</code>, then only the holder or minter can check it.</p>
 
@@ -946,15 +958,15 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='list-nfts-being-held-by-an-id-wallet-end-user-account'>List NFTs being held by an ID Wallet (End-user Account)</h2>
+</code></pre></div><h2 id='list-nfts-being-held-by-an-id-wallet-end-user-account'>List NFTs being held by an ID Wallet (End-user Account)</h2>
 <blockquote>
 <p>Please replace the value <code>&lt;ID_WALLET_ADDRESS&gt;</code> to the actual one in the url.</p>
 
@@ -973,7 +985,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
@@ -981,8 +995,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <span class="p">}</span>
 </code></pre></div>
 <p><strong>Only the NFTs visible by the requester (http client) will be returned.</strong></p>
-
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
 <h2 id='list-nfts-minted-by-organization-account-minter'>List NFTs minted by Organization Account (Minter)</h2>
 <blockquote>
 <p>Only the minter (organization account) can perform this action.</p>
@@ -1002,15 +1014,15 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='toggle-nft-visibility'>Toggle NFT visibility</h2>
+</code></pre></div><h2 id='toggle-nft-visibility'>Toggle NFT visibility</h2>
 <blockquote>
 <p><strong>Only the holder (end-user account) and the minter (organization account) can perform this action</strong>.</p>
 
@@ -1023,20 +1035,22 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">to</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span> <span class="c1">// or "private"</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// or "private"</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='search-public-nfts-by-field-matching-search'>Search Public NFTs by field-matching search</h2>
+</code></pre></div><h2 id='search-public-nfts-by-field-matching-search'>Search Public NFTs by field-matching search</h2>
 <blockquote>
 <p>This can only find public NFTs.</p>
 
@@ -1055,7 +1069,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="c1">// each field can be set to undefined for ignoring the field matching</span>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">issuer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
@@ -1080,15 +1096,15 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='search-nfts-minted-by-me-organization-account-by-field-matching-search'>Search NFTs minted by me (Organization Account) by field-matching-search</h2>
+</code></pre></div><h2 id='search-nfts-minted-by-me-organization-account-by-field-matching-search'>Search NFTs minted by me (Organization Account) by field-matching-search</h2>
 <ul>
 <li><code>POST</code></li>
 <li><code>/nft/minted_by_me/search?perPageItemNum=10&amp;pageNum=1&amp;order=asc</code></li>
@@ -1098,8 +1114,6 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Please refer to the previous one for the request/response body format.</p>
 </blockquote>
-
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
 <h2 id='generate-qr-code-for-nft-verification-by-the-holder-nft-verification-step-1'>Generate QR Code for NFT verification by the holder (NFT Verification Step 1)</h2>
 <blockquote>
 <p><strong>Only the holder (end-user account) can perform this action</strong>.</p>
@@ -1119,9 +1133,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p>The QR Code in the result is base64 encoded image.</p>
 
 <p>The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.</p>
-</blockquote>
 
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="c1">// this should be the current location of the holder</span>
   <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1130,7 +1144,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1139,9 +1155,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2'>Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</h2>
+</code></pre></div><h2 id='verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2'>Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</h2>
 <blockquote>
 <p>The scanner scanned the qrcode.</p>
 
@@ -1156,7 +1170,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="c1">// this should be the current location of the scanner</span>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1165,7 +1181,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1173,9 +1191,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h2 id='poll-nft-verification-result'>Poll NFT Verification result</h2>
+</code></pre></div><h2 id='poll-nft-verification-result'>Poll NFT Verification result</h2>
 <blockquote>
 <p>Put the <code>code</code> from the response of step1 into the query param</p>
 </blockquote>
@@ -1186,7 +1202,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
+<blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
 <div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1194,9 +1212,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
-<h1 id='errors'>Errors</h1>
+</code></pre></div><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
