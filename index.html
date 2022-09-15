@@ -496,44 +496,22 @@
 <p>In <code>redirect_url</code> of the request body, the organization should include the identifier of the end-user in order to associate the organization&#39;s end-user with an ID Wallet Address in the organization&#39;s internal system.</p>
 
 <p>For example, <code>userId=xxx</code> in the redirect url&#39;s query param (any query param is allowed for the organization).</p>
-
-<blockquote>
-<ol>
-<li>Embed the JavaScript code in to the organization&#39;s web page</li>
-</ol>
-
+<h3 id='embed-the-javascript-code-in-to-the-organization-39-s-web-page'>Embed the JavaScript code in to the organization&#39;s web page</h3>
 <p>The organization needs to embed the function code body in the <code>&lt;script&gt;...&lt;/script&gt;</code> section in the header of the web page,<br>
 and bind the onclick event to the button like :</p>
-</blockquote>
 <div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"event.preventDefault();globalWeb3ConnectButtonOnClick();"</span><span class="nt">&gt;</span>
   Web3Connect
 <span class="nt">&lt;/button&gt;</span>
-</code></pre></div>
-<blockquote>
-<ol>
-<li>Let the end-user walk through the association process</li>
-</ol>
-
+</code></pre></div><h3 id='let-the-end-user-walk-through-the-association-process'>Let the end-user walk through the association process</h3>
 <p>Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the <code>API_KEY_SECRET</code>).</p>
-
-<ol>
-<li>The organization process the callback http request (<code>redirect_url</code>)</li>
-</ol>
-
+<h3 id='the-organization-process-the-callback-http-request-redirect_url'>The organization process the callback http request (<code>redirect_url</code>)</h3>
 <p>And finally, a url (the adjusted redirect url) :</p>
-</blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>GET
 https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x1234567890123456789012345678901234567890
 </code></pre></div>
-<blockquote>
-<p>will be opened by the end-user&#39;s web browser (a query param <code>id_wallet_address</code> is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization&#39;s internal system process.</p>
-
-<ol>
-<li>The organization should store the <code>id_wallet_address</code> of the end-user</li>
-</ol>
-
+<p>The url will be opened by the end-user&#39;s web browser (a query param <code>id_wallet_address</code> is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization&#39;s internal system process.</p>
+<h3 id='the-organization-should-store-the-id_wallet_address-of-the-end-user'>The organization should store the <code>id_wallet_address</code> of the end-user</h3>
 <p>The organization will need to store the <code>id_wallet_address</code> of the end-user inside their database.</p>
-</blockquote>
 
 <p>Through this process, the organization will only know the <code>id_wallet_address</code> of an end-user, but not its email.</p>
 
@@ -1176,63 +1154,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+<p>WIP</p>
 
       </div>
       <div class="dark-box">
