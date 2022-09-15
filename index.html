@@ -443,9 +443,9 @@
 <h2 id='access_token-v-s-api_key_secret'><code>ACCESS_TOKEN</code> v.s. <code>API_KEY_SECRET</code></h2>
 <ul>
 <li><p><code>ACCESS_TOKEN</code> is used for common APIs, which must be used in <code>Authorization</code> header in HTTP request.</p></li>
+<li><p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p></li>
 <li><p><code>API_KEY_SECRET</code> is used for critical APIs, such as refreshing <code>ACCESS_TOKEN</code> and generating one-time-use javascript code.</p></li>
 <li><p><code>API_KEY_SECRET</code> is never used in the header in HTTP request.</p></li>
-<li><p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p></li>
 </ul>
 
 <p><strong>DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.</strong></p>
