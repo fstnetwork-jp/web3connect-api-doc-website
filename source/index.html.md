@@ -121,7 +121,7 @@ In `redirect_url` of the request body, the organization should include the ident
 
 For example, `userId=xxx` in the redirect url's query param (any query param is allowed for the organization).
 
-### Embed the JavaScript code in to the organization's web page
+## (Cont'd) Embed the JavaScript code in to the organization's web page
 
 The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
 and bind the onclick event to the button like :
@@ -132,11 +132,11 @@ and bind the onclick event to the button like :
 </button>
 ```
 
-### Let the end-user walk through the association process
+## (Cont'd) Let the end-user walk through the association process
 
 Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the `API_KEY_SECRET`).
 
-### The organization process the callback http request (`redirect_url`)
+## (Cont'd) The organization process the callback http request (`redirect_url`)
 
 And finally, a url (the adjusted redirect url) :
 
@@ -147,7 +147,7 @@ https://company.com/abc/def?g=h&userId=xxx&id_wallet_address=0x12345678901234567
 
 The url will be opened by the end-user's web browser (a query param `id_wallet_address` is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization's internal system process.
 
-### The organization should store the `id_wallet_address` of the end-user
+## (Cont'd) The organization should store the `id_wallet_address` of the end-user
 
 The organization will need to store the `id_wallet_address` of the end-user inside their database.
 
