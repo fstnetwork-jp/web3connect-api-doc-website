@@ -93,6 +93,8 @@ An API Key Secret can be used to obtain the access token and confirmation token.
 
 ## Generate Web3Connect Button OnClick JavaScript function code body
 
+This API helps generating required JavaScript code for the Web3Connect button in organization's web page or mobile app.
+
 - `POST`
 - `/auth/account/association/generate_web3connect_button_js`
 - **No Authorization Header required**
@@ -160,7 +162,7 @@ The url will be opened by the end-user's web browser (a query param `id_wallet_a
 
 ## (Cont'd) The organization should store the `id_wallet_address` of the end-user
 
-The organization will need to store the `id_wallet_address` of the end-user inside their database.
+The organization will need to store the `id_wallet_address` of the end-user inside their database or system.
 
 Through this process, the organization will only know the `id_wallet_address` of an end-user, but not its email.
 
