@@ -121,10 +121,10 @@ In `redirect_url` of the request body, the organization should include the ident
 
 For example, `userId=xxx` in the redirect url's query param (any query param is allowed for the organization).
 
-> 1. Embed the JavaScript code in to the organization's web page
+### Embed the JavaScript code in to the organization's web page
 
-> The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
-> and bind the onclick event to the button like :
+The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
+and bind the onclick event to the button like :
 
 ```html
 <button onclick="event.preventDefault();globalWeb3ConnectButtonOnClick();">
@@ -132,24 +132,24 @@ For example, `userId=xxx` in the redirect url's query param (any query param is 
 </button>
 ```
 
-> 2. Let the end-user walk through the association process
+### Let the end-user walk through the association process
 
-> Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the `API_KEY_SECRET`).
+Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the `API_KEY_SECRET`).
 
-> 3. The organization process the callback http request (`redirect_url`)
+### The organization process the callback http request (`redirect_url`)
 
-> And finally, a url (the adjusted redirect url) :
+And finally, a url (the adjusted redirect url) :
 
 ```
 GET
 https://company.com/abc/def?g=h&userId=xxx&id_wallet_address=0x1234567890123456789012345678901234567890
 ```
 
-> will be opened by the end-user's web browser (a query param `id_wallet_address` is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization's internal system process.
+The url will be opened by the end-user's web browser (a query param `id_wallet_address` is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization's internal system process.
 
-> 4. The organization should store the `id_wallet_address` of the end-user
+### The organization should store the `id_wallet_address` of the end-user
 
-> The organization will need to store the `id_wallet_address` of the end-user inside their database.
+The organization will need to store the `id_wallet_address` of the end-user inside their database.
 
 Through this process, the organization will only know the `id_wallet_address` of an end-user, but not its email.
 
