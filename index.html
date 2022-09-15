@@ -510,9 +510,19 @@
 <h2 id='cont-39-d-embed-the-javascript-code-in-to-the-organization-39-s-web-page'>(Cont&#39;d) Embed the JavaScript code in to the organization&#39;s web page</h2>
 <p>The organization needs to embed the function code body in the <code>&lt;script&gt;...&lt;/script&gt;</code> section in the header of the web page,<br>
 and bind the onclick event to the button like :</p>
-<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"event.preventDefault();globalWeb3ConnectButtonOnClick();"</span><span class="nt">&gt;</span>
-  Web3Connect
-<span class="nt">&lt;/button&gt;</span>
+<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="cm">/* function globalWeb3ConnectButtonOnClick() {
+    } */</span>
+    <span class="cm">/* from the result of the previous API call */</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"event.preventDefault();globalWeb3ConnectButtonOnClick();"</span><span class="nt">&gt;</span>
+    Web3Connect
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
 </code></pre></div><h2 id='cont-39-d-let-the-end-user-walk-through-the-association-process'>(Cont&#39;d) Let the end-user walk through the association process</h2>
 <p>Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the <code>API_KEY_SECRET</code>).</p>
 <h2 id='cont-39-d-the-organization-process-the-callback-http-request-redirect_url'>(Cont&#39;d) The organization process the callback http request (<code>redirect_url</code>)</h2>
