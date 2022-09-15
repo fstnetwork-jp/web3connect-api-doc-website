@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for the Web3Connect RESTful API for Organization Accounts"
         >
-    <title>API Reference</title>
+    <title>Web3Connect RESTful API Doc</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -306,8 +306,6 @@
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -316,22 +314,101 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#http-end-point-base-url" class="toc-h2 toc-link" data-title="HTTP End Point (Base URL)">HTTP End Point (Base URL)</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#http-headers-required-in-the-requests" class="toc-h2 toc-link" data-title="HTTP Headers required in the requests">HTTP Headers required in the requests</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#access_token-v-s-api_key_secret" class="toc-h2 toc-link" data-title="ACCESS_TOKEN v.s. API_KEY_SECRET"><code>ACCESS_TOKEN</code> v.s. <code>API_KEY_SECRET</code></a>
+                  </li>
+                  <li>
+                    <a href="#common-response-body-format" class="toc-h2 toc-link" data-title="Common Response Body Format">Common Response Body Format</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#auth-api" class="toc-h1 toc-link" data-title="Auth API">Auth API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#refresh-obtain-access-token-with-api-key-secret" class="toc-h2 toc-link" data-title="Refresh (Obtain) Access Token with API Key Secret">Refresh (Obtain) Access Token with API Key Secret</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#account-association-amp-end-user-import" class="toc-h1 toc-link" data-title="Account Association &amp; End-user Import">Account Association &amp; End-user Import</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#generate-web3connect-button-onclick-javascript-function-code-body" class="toc-h2 toc-link" data-title="Generate Web3Connect Button OnClick JavaScript function code body">Generate Web3Connect Button OnClick JavaScript function code body</a>
+                  </li>
+                  <li>
+                    <a href="#import-existing-end-user-with-its-email-not-recommended" class="toc-h2 toc-link" data-title="Import Existing End-user with its email (Not recommended)">Import Existing End-user with its email (Not recommended)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#verify-api-for-organization-account" class="toc-h1 toc-link" data-title="Verify API (for Organization Account)">Verify API (for Organization Account)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#verify-phone-step-1" class="toc-h2 toc-link" data-title="Verify Phone Step 1">Verify Phone Step 1</a>
+                  </li>
+                  <li>
+                    <a href="#verify-phone-step-2" class="toc-h2 toc-link" data-title="Verify Phone Step 2">Verify Phone Step 2</a>
+                  </li>
+                  <li>
+                    <a href="#verify-domain-step-1" class="toc-h2 toc-link" data-title="Verify Domain Step 1">Verify Domain Step 1</a>
+                  </li>
+                  <li>
+                    <a href="#verify-domain-step-2" class="toc-h2 toc-link" data-title="Verify Domain Step 2">Verify Domain Step 2</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#account-api" class="toc-h1 toc-link" data-title="Account API">Account API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-public-account-info-by-id-wallet-address" class="toc-h2 toc-link" data-title="Get Public Account Info by ID Wallet Address">Get Public Account Info by ID Wallet Address</a>
+                  </li>
+                  <li>
+                    <a href="#get-my-info" class="toc-h2 toc-link" data-title="Get My Info">Get My Info</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#nft-api" class="toc-h1 toc-link" data-title="NFT API">NFT API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#mint-nft-by-organization-account" class="toc-h2 toc-link" data-title="Mint NFT by Organization Account">Mint NFT by Organization Account</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-nft-info" class="toc-h2 toc-link" data-title="Fetch NFT info">Fetch NFT info</a>
+                  </li>
+                  <li>
+                    <a href="#list-nfts-being-held-by-an-id-wallet-end-user-account" class="toc-h2 toc-link" data-title="List NFTs being held by an ID Wallet (End-user Account)">List NFTs being held by an ID Wallet (End-user Account)</a>
+                  </li>
+                  <li>
+                    <a href="#list-nfts-minted-by-organization-account-minter" class="toc-h2 toc-link" data-title="List NFTs minted by Organization Account (Minter)">List NFTs minted by Organization Account (Minter)</a>
+                  </li>
+                  <li>
+                    <a href="#toggle-nft-visibility" class="toc-h2 toc-link" data-title="Toggle NFT visibility">Toggle NFT visibility</a>
+                  </li>
+                  <li>
+                    <a href="#search-public-nfts-by-field-matching-search" class="toc-h2 toc-link" data-title="Search Public NFTs by field-matching search">Search Public NFTs by field-matching search</a>
+                  </li>
+                  <li>
+                    <a href="#search-nfts-minted-by-me-organization-account-by-field-matching-search" class="toc-h2 toc-link" data-title="Search NFTs minted by me (Organization Account) by field-matching-search">Search NFTs minted by me (Organization Account) by field-matching-search</a>
+                  </li>
+                  <li>
+                    <a href="#generate-qr-code-for-nft-verification-by-the-holder-nft-verification-step-1" class="toc-h2 toc-link" data-title="Generate QR Code for NFT verification by the holder (NFT Verification Step 1)">Generate QR Code for NFT verification by the holder (NFT Verification Step 1)</a>
+                  </li>
+                  <li>
+                    <a href="#verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2" class="toc-h2 toc-link" data-title="Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)">Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</a>
+                  </li>
+                  <li>
+                    <a href="#poll-nft-verification-result" class="toc-h2 toc-link" data-title="Poll NFT Verification result">Poll NFT Verification result</a>
                   </li>
               </ul>
           </li>
@@ -340,192 +417,785 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+        <h1 id='overview'>Overview</h1><h2 id='http-end-point-base-url'>HTTP End Point (Base URL)</h2><div class="highlight"><pre class="highlight plaintext"><code>https://dev.web3connect.jp/rest/v1
+</code></pre></div><h2 id='http-headers-required-in-the-requests'>HTTP Headers required in the requests</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Especially for the APIs that need to know the identity of the client (requester)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight plaintext"><code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>ACCESS_TOKEN is in JWT format.</p>
 </blockquote>
+<h2 id='access_token-v-s-api_key_secret'><code>ACCESS_TOKEN</code> v.s. <code>API_KEY_SECRET</code></h2>
+<p><code>ACCESS_TOKEN</code> is used for common APIs, which must be used in <code>Authorization</code> header in HTTP request.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p><code>API_KEY_SECRET</code> is used for critical APIs, such as refreshing <code>ACCESS_TOKEN</code> and generating one-time-use javascript code.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p><code>API_KEY_SECRET</code> is never used in the header in HTTP request.</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p>
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
+<p><strong>DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.</strong></p>
+<h2 id='common-response-body-format'>Common Response Body Format</h2><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// "error"</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// null, Object, Array, Boolean, String or Number</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span> <span class="c1">// null, Error Message in String or Error Message in Object</span>
+<span class="p">}</span>
+</code></pre></div><h1 id='auth-api'>Auth API</h1>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p><strong>Please obtain your API Key Secret from Web3Connect beforehand.</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>An API Key Secret can be used to obtain the access token and confirmation token.</p>
+<h2 id='refresh-obtain-access-token-with-api-key-secret'>Refresh (Obtain) Access Token with API Key Secret</h2>
+<ul>
+<li><code>POST</code></li>
+<li><code>/auth/account/access_token/refresh</code></li>
+<li><strong>No Authorization Header required</strong></li>
+</ul>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span>
+<span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ACCESS_TOKEN&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
 </code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p><strong>This API must be called in the backend, but not in the frontend.</strong></p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/auth/account/association/generate_web3connect_button_js</code></li>
+<li><strong>No Authorization Header required</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span> <span class="c1">// YOUR API KEY SECRET,</span>
+  <span class="dl">"</span><span class="s2">redirect_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://company.com/abc/def?g=h&amp;userId=xxx</span><span class="dl">"</span> <span class="c1">// For the redirection after the end-user finishes the association process</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">function globalWeb3ConnectButtonOnClick() {...}</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// JavaScript function code body</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In <code>redirect_url</code> of the request body, the organization should include the identifier of the end-user in order to associate the organization&#39;s end-user with an ID Wallet Address in the organization&#39;s internal system.</p>
+
+<p>For example, <code>userId=xxx</code> in the redirect url&#39;s query param (any query param is allowed for the organization).</p>
+
+<ol>
+<li>Embed the JavaScript code in to the organization&#39;s web page</li>
+</ol>
+
+<p>The organization needs to embed the function code body in the <code>&lt;script&gt;...&lt;/script&gt;</code> section in the header of the web page,<br>
+and bind the onclick event to the button like :</p>
+<div class="highlight"><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"event.preventDefault();globalWeb3ConnectButtonOnClick();"</span><span class="nt">&gt;</span>
+  Web3Connect
+<span class="nt">&lt;/button&gt;</span>
+</code></pre></div>
+<ol>
+<li>Let the end-user walk through the association process</li>
+</ol>
+
+<p>Once the end-user clicks the button, the end-user will walk through the association process in a newly opened web page (association page), and Web3Connect backend will associate the end-user account (will be created if needed) with the organization account (the reason why this API needs the <code>API_KEY_SECRET</code>).</p>
+
+<ol>
+<li>The organization process the callback http request (<code>redirect_url</code>)</li>
+</ol>
+
+<p>And finally, a url (the adjusted redirect url) :</p>
+<div class="highlight"><pre class="highlight plaintext"><code>GET
+https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x1234567890123456789012345678901234567890
+</code></pre></div>
+<p>will be opened by the end-user&#39;s web browser (a query param <code>id_wallet_address</code> is appended to the url) at the end of the association process, the organization should process this HTTP request to finish the organization&#39;s internal system process.</p>
+
+<ol>
+<li>The organization should store the <code>id_wallet_address</code> of the end-user</li>
+</ol>
+
+<p>The organization will need to store the <code>id_wallet_address</code> of the end-user inside their database.</p>
+
+<blockquote>
+<p>Through this process, the organization will only know the <code>id_wallet_address</code> of an end-user, but not its email.</p>
+
+<p>An ID Wallet will be automatically created if the end-user&#39;s info does not exist in Web3Connect.</p>
+</blockquote>
+
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='import-existing-end-user-with-its-email-not-recommended'>Import Existing End-user with its email (Not recommended)</h2>
+<blockquote>
+<p>This implies that the end-user already knows which email is used for login.</p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/account/import</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x....</span><span class="dl">"</span>
+  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h1 id='verify-api-for-organization-account'>Verify API (for Organization Account)</h1>
+<p>Web3Connect will support the verification process during the creation of the organization account.</p>
+<h2 id='verify-phone-step-1'>Verify Phone Step 1</h2>
+<blockquote>
+<p>This will send a code to the mobile.</p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/verify/phone/step1</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">+8860912345678</span><span class="dl">"</span> <span class="c1">// a valid mobile phone number in E.164 format</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">tmp_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">token string</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// this is critical for step 2</span>
+    <span class="dl">"</span><span class="s2">code_sent</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='verify-phone-step-2'>Verify Phone Step 2</h2>
+<blockquote>
+<p><strong>Please take the <code>tmp_token</code> from the response in step 1.</strong></p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/verify/phone/step2</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">tmp_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">token string</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// from step 1</span>
+  <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123456</span><span class="dl">"</span> <span class="c1">// the verification code received by the phone</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// phone verified</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='verify-domain-step-1'>Verify Domain Step 1</h2>
+<blockquote>
+<p><strong>Only Organization Account can perform this action.</strong></p>
+
+<p><code>domain</code> in the response is from the value during the sign-up process of the Organization Account.</p>
+
+<p>Please set the value of <code>txt_record</code> under the domain&#39;s TXT record (the domain is already set during the sign-up process)</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/verify/domain/step1</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">txt_record</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">web3connect-domain-verification=XXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">domain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">company.com</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='verify-domain-step-2'>Verify Domain Step 2</h2>
+<blockquote>
+<p><strong>Only Organization Account can perform this action.</strong></p>
+
+<p>This step checks the txt record of the domain.</p>
+
+<p>Please set the value of <code>txt_record</code> under the domain&#39;s TXT record in step 1.</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/verify/domain/step2</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// domain verified</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h1 id='account-api'>Account API</h1><h2 id='get-public-account-info-by-id-wallet-address'>Get Public Account Info by ID Wallet Address</h2>
+<blockquote>
+<p>Please replace the <code>&lt;id_wallet_address&gt;</code> section in the url with the ID Wallet Address (e.g. <code>0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef</code>)</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/account/id_wallet/&lt;id_wallet_address&gt;/public_info</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_public_key_jwk</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">kty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">EC</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">crv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">secp256k1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">base64url string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">y</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">base64url string</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='get-my-info'>Get My Info</h2>
+<ul>
+<li><code>GET</code></li>
+<li><code>/account/my_info</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">account_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6aecfd05-4de5-31c3-052c-ce3dae83057d</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">oidc_issuer_url</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6aecfd05-4de5-31c3-052c-ce3dae83057d</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">given_name</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">family_name</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">middle_name</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">nickname</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">preferred_username</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">profile</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">picture</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">website</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">My Email</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">email_verified</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">gender</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">birthdate</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">zoneinfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">locale</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">phone_number_verified</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">end_user</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">domain</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">domain_verified</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x5d2c54024c8f9d58059da8c47ba7e5bbdab6b249</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">jwk_encrypted</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">kty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">EC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">crv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">secp256k1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">zP1RAll6_fSP83YulysNF3L3YVef6DGa0d0Dlh794K4</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">y</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ON2BME5Sptnptg970Bnuz4qk9tZqSfaHuHg2W-jaKLE</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="dl">"</span><span class="s2">owner</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">62da2c56ec8145256f37f3fc</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">created_date_string</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-07-22T04:49:26.105Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-07-22T04:49:26.134Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-07-22T04:49:26.134Z</span><span class="dl">"</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-07-22T04:49:26.125Z</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">updated_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-07-22T04:49:26.125Z</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h1 id='nft-api'>NFT API</h1><h2 id='mint-nft-by-organization-account'>Mint NFT by Organization Account</h2>
+<blockquote>
+<p><strong>Only Organization Account can perform this action.</strong></p>
+
+<p>Organization Account&#39;s domain must be verified beforehand.</p>
+
+<p>Please replace <code>&lt;holder_id_wallet_address&gt;</code> section in the url to the id_wallet_address of the end-user account (who will become the holder of the newly minted nft).<br>
+(e.g. <code>0x1234567890123456789012345678901234567890</code>)</p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/nft/mint/to/&lt;holder_id_wallet_address&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// all required, except "expired_at"</span>
+      <span class="dl">"</span><span class="s2">issuer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">contents_provider</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">serial_number</span><span class="dl">"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">total_issued</span><span class="dl">"</span><span class="p">:</span> <span class="mi">321</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">animation_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">expired_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2030-12-31T12:34:56.000Z</span><span class="dl">"</span> <span class="c1">// optional, format is Date ISO String, by default it is 9999-12-31T23:59:59.000Z</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">dynamic</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// all optional</span>
+      <span class="dl">"</span><span class="s2">external_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">youtube_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">background_color</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">points_earned</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// number</span>
+      <span class="dl">"</span><span class="s2">unit_of_points</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">program_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">organization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">brand</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">branch</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">department</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sns1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sns2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">sns3</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">role</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">numbered_position</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">tel</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">reference_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">license</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">competency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">credential_category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">date_created</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">date_modified</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">expires</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">valid_latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">valid_longitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">valid_radius</span><span class="dl">"</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="c1">// number</span>
+      <span class="dl">"</span><span class="s2">unit_of_length</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">ticketed_seat</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">total_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="c1">// number</span>
+      <span class="dl">"</span><span class="s2">consumable_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="c1">// number</span>
+      <span class="dl">"</span><span class="s2">price_currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">discount_rate</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">// number</span>
+      <span class="dl">"</span><span class="s2">gtin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gtin12</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gtin13</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gtin14</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">gtin8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">has_adult_consideration</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">rating</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">copyright_notice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">copyright_year</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2022</span><span class="p">,</span> <span class="c1">// integer</span>
+      <span class="dl">"</span><span class="s2">credit_text</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">policy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">attributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span> <span class="c1">// array</span>
+      <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// object</span>
+      <span class="dl">"</span><span class="s2">localization</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span> <span class="c1">// object</span>
+      <span class="c1">// and any other keys and values</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">token_uri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">minter_digital_signature</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-12-31T12:34:56.000Z</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">issuer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">contents_provider</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">serial_number</span><span class="dl">"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">total_issued</span><span class="dl">"</span><span class="p">:</span> <span class="mi">321</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">animation_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span>
+      <span class="p">},</span>
+      <span class="dl">"</span><span class="s2">dynamic</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">external_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">youtube_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">background_color</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">points_earned</span><span class="dl">"</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// number</span>
+        <span class="dl">"</span><span class="s2">unit_of_points</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">program_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">organization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">brand</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">branch</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">department</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sns1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sns2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sns3</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">role</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">numbered_position</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tel</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">reference_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">license</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">competency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">credential_category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">date_created</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">date_modified</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">expires</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1784576401</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">valid_latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">valid_longitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">valid_radius</span><span class="dl">"</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="c1">// number</span>
+        <span class="dl">"</span><span class="s2">unit_of_length</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ticketed_seat</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">total_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="c1">// number</span>
+        <span class="dl">"</span><span class="s2">consumable_value</span><span class="dl">"</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="c1">// number</span>
+        <span class="dl">"</span><span class="s2">price_currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">discount_rate</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="c1">// number</span>
+        <span class="dl">"</span><span class="s2">gtin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">gtin12</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">gtin13</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">gtin14</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">gtin8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">has_adult_consideration</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">rating</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">copyright_notice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">copyright_year</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2022</span><span class="p">,</span> <span class="c1">// integer</span>
+        <span class="dl">"</span><span class="s2">credit_text</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">policy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">attributes</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span> <span class="c1">// array</span>
+        <span class="dl">"</span><span class="s2">properties</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// object</span>
+        <span class="dl">"</span><span class="s2">localization</span><span class="dl">"</span><span class="p">:</span> <span class="p">{}</span> <span class="c1">// object</span>
+        <span class="c1">// and other properties</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='fetch-nft-info'>Fetch NFT info</h2>
+<blockquote>
+<p>If the NFT&#39;s visibility is <code>private</code>, then only the holder or minter can check it.</p>
+
+<p>If the NFT&#39;s visibility is <code>public</code>, then any account can check it.</p>
+
+<p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
+
+<p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/nft/&lt;token_id&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object, please refer to the response of mint nft</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='list-nfts-being-held-by-an-id-wallet-end-user-account'>List NFTs being held by an ID Wallet (End-user Account)</h2>
+<blockquote>
+<p>Please replace the value <code>&lt;ID_WALLET_ADDRESS&gt;</code> to the actual one in the url.</p>
+
+<p><code>perPageItemNum</code> query param is for setting how many NFT objects per page. Default value is <code>10</code>.</p>
+
+<p><code>pageNum</code> query param starts from <code>1</code>, for listing the NFT objects of the n-th page. Default value is <code>1</code>.</p>
+
+<p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
+
+<p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/nft/held_by_id_wallet/&lt;ID_WALLET_ADDRESS&gt;?perPageItemNum=10&amp;pageNum=1&amp;order=asc</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Only the NFTs visible by the requester (http client) will be returned.</strong></p>
+
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='list-nfts-minted-by-organization-account-minter'>List NFTs minted by Organization Account (Minter)</h2>
+<blockquote>
+<p>Only the minter (organization account) can perform this action.</p>
+
+<p><code>perPageItemNum</code> query param is for setting how many NFT objects per page.</p>
+
+<p><code>pageNum</code> query param starts from <code>1</code>, for listing the NFT objects of the n-th page.</p>
+
+<p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
+
+<p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/nft/minted_by_me?perPageItemNum=10&amp;pageNum=1&amp;order=asc</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='toggle-nft-visibility'>Toggle NFT visibility</h2>
+<blockquote>
+<p><strong>Only the holder (end-user account) and the minter (organization account) can perform this action</strong>.</p>
+
+<p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
+</blockquote>
+
+<ul>
+<li><code>PUT</code></li>
+<li><code>/nft/&lt;token_id&gt;/visibility</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">to</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span> <span class="c1">// or "private"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// or "private"</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='search-public-nfts-by-field-matching-search'>Search Public NFTs by field-matching search</h2>
+<blockquote>
+<p>This can only find public NFTs.</p>
+
+<p><code>perPageItemNum</code> query param is for setting how many NFT objects per page.</p>
+
+<p><code>pageNum</code> query param starts from <code>1</code>, for listing the NFT objects of the n-th page.</p>
+
+<p><code>order</code> query param is for controlling sort order based on <code>created_at</code> of the NFTs, it can be <code>desc</code> or <code>asc</code>, default value is <code>asc</code>.</p>
+
+<p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/nft/search?perPageItemNum=10&amp;pageNum=1&amp;order=asc</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// each field can be set to undefined for ignoring the field matching</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">issuer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">contents_provider</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">description</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">program_name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">organization</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">brand</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">competency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">credential_category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">level</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">gtin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">gtin12</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">gtin13</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">gtin14</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">gtin8</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">has_adult_consideration</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">rating</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='search-nfts-minted-by-me-organization-account-by-field-matching-search'>Search NFTs minted by me (Organization Account) by field-matching-search</h2>
+<ul>
+<li><code>POST</code></li>
+<li><code>/nft/minted_by_me/search?perPageItemNum=10&amp;pageNum=1&amp;order=asc</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<blockquote>
+<p>Please refer to the previous one for the request/response body format.</p>
+</blockquote>
+
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='generate-qr-code-for-nft-verification-by-the-holder-nft-verification-step-1'>Generate QR Code for NFT verification by the holder (NFT Verification Step 1)</h2>
+<blockquote>
+<p><strong>Only the holder (end-user account) can perform this action</strong>.</p>
+
+<p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/nft/&lt;token_id&gt;/verification/qr_code/step1</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<blockquote>
+<p>The holder only needs to post the current gps location of its device to the web3connect api.</p>
+
+<p>The QR Code in the result is base64 encoded image.</p>
+
+<p>The QR Code will be only available for next 5 minutes, the scanner must scan this QR Code ASAP.</p>
+</blockquote>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="c1">// this should be the current location of the holder</span>
+  <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">26.583193</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">longitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">128.053881</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1234567890</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">qr_code_base64</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAgAAAQICAYAAACAmekaAAAAAXNSR0IArs4c6QAAIABJREFUeF7snUGW3TgOBF33P7TnTXvtLz5nRQFJxaxFKBlIgBT8u+br9+/fv3/5PwlIQAISkIAEJCABCUhAAhKQgAReTeDLAcGr8+/mJSABCUhAAhKQgAQkIAEJSEAC/xFwQKARJCABCUhAAhKQgAQkIAEJSEACEnBAoAckIAEJSEACEpCABCQgAQlIQAIS8BcEekACEpCABCQgAQlIQAISkIAEJCAB/xMDPSABCUhAAhKQgAQkIAEJSEACEpDA/wn4Nwj0gQQkIAEJSEACEpCABCQgAQlIQAIOCPSABCQgAQlIQAISkIAEJCABCUhAAv6CQA9IQAISkIAEJCABCUhAAhKQgAQk4H9ioAckIAEJSEACEpCABCQgAQlIQAIS+D8B/waBPpCABCQgAQlIQAISkIAEJCABCUjAAYEekIAEJCABCUhAAhKQgAQkIAEJSMBfEOgBCUhAAhKQgAQkIAEJSEACEpCABPxPDPSABCQgAQlIQAISkIAEJCABCUhAAv8n4N8g0AcSkIAEJCABCUhAAhKQgAQkIAEJOCDQAxKQgAQkIAEJSEACEpCABCQgAQn4CwI9IAEJSEACEpCABCQgAQlIQAISkID/iYEekIAEJCABCUhAAhKQgAQkIAEJSOD/BPwbBPpAAhKQgAQkIAEJSEACEpCABCQgAQcEekACEpCABCQgAQlIQAISkIAEJCABf0GgByQgAQlIQAISkIAEJCABCUhAAhLwPzHQAxKQgAQkIAEJSEACEpCABCQgAQn8n4B/g0AfSEACEpCABCQgAQlIQAISkIAEJOCAQA9IQAISkIAEJCABCUhAAhKQgAQk8AO/IPj6+pKzBNYS+P3791ptJ8Lo+mrnc8IweYbmn2g7WdueX5o/zUf9Jy71mb8RoP3ZTp6ur3Y...</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2'>Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</h2>
+<blockquote>
+<p>The scanner scanned the qrcode.</p>
+
+<p>The query param <strong><code>CODE</code></strong> is exactly from the qrcode image, the decoded content of the qrcode image is this <strong><code>CODE</code></strong>.</p>
+
+<p><strong>And the requester (scanner) must add location information into the request body</strong></p>
+</blockquote>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/nft/verification/qr_code/step2?c=&lt;CODE&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// this should be the current location of the scanner</span>
+<span class="p">{</span>
+  <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">26.583193</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">longitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">128.053881</span><span class="dl">"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;VERIFIED_NFT_TOKEN_ID&gt;</span><span class="dl">"</span>
+  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
+<h2 id='poll-nft-verification-result'>Poll NFT Verification result</h2>
+<blockquote>
+<p>Put the <code>code</code> from the response of step1 into the query param</p>
+</blockquote>
+
+<ul>
+<li><code>GET</code></li>
+<li><code>/nft/verification/qr_code/result?c=&lt;CODE&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;VERIFIED_NFT_TOKEN_ID&gt;</span><span class="dl">"</span> <span class="c1">// null if not verified yet</span>
+  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="#web3connect-restful-api-doc">[Back to top]</a></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -589,8 +1259,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
