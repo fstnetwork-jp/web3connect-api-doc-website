@@ -41,11 +41,11 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 - `ACCESS_TOKEN` is used for common APIs, which must be used in `Authorization` header in HTTP request.
 
+- `API_KEY_SECRET` can be obtained from Web3Connect, and it should be stored in a safe place by the organization.
+
 - `API_KEY_SECRET` is used for critical APIs, such as refreshing `ACCESS_TOKEN` and generating one-time-use javascript code.
 
 - `API_KEY_SECRET` is never used in the header in HTTP request.
-
-- `API_KEY_SECRET` can be obtained from Web3Connect, and it should be stored in a safe place by the organization.
 
 **DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.**
 
