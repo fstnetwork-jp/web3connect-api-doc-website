@@ -1211,9 +1211,11 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <p>Please obtain your <code>client_id</code> (your organization account&#39;s <code>id</code>) from Web3Connect beforehand.</p>
 
 <p>Also, please register your <code>redirect_uri</code>(s) with Web3Connect beforehand, otherwise the OIDC Provider will deny the Authorization Request.</p>
-<h2 id='oidc-configuration'>OIDC Configuration</h2><div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp/.well-known/openid-configuration
-</code></pre></div><h2 id='auth-endpoint'>Auth Endpoint</h2><div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp
-</code></pre></div><h2 id='preparation'>Preparation</h2>
+<h2 id='oidc-configuration'>OIDC Configuration</h2>
+<p>https://oidc2.web3connect.jp/.well-known/openid-configuration</p>
+<h2 id='auth-endpoint'>Auth Endpoint</h2>
+<p>https://oidc2.web3connect.jp/auth</p>
+<h2 id='preparation'>Preparation</h2>
 <ol>
 <li>Pick a standard OIDC or OAuth Client implementation as the framework or library.</li>
 <li>Choose Hybrid Flow or Implicit Flow based on the scenario.</li>
