@@ -3,6 +3,8 @@ title: Web3Connect RESTful API Doc
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
+  - http
+  - shell
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -51,7 +53,7 @@ Authorization: Bearer <ACCESS_TOKEN>
 
 ## Common Response Body Format
 
-```js
+```javascript
 {
   "status": "ok", // "error"
   "result": {}, // null, Object, Array, Boolean, String or Number
@@ -73,7 +75,7 @@ An API Key Secret can be used to obtain the access token and confirmation token.
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "api_key_secret": "<SECRET>"
 }
@@ -81,7 +83,7 @@ An API Key Secret can be used to obtain the access token and confirmation token.
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": "<ACCESS_TOKEN>",
@@ -101,7 +103,7 @@ This API helps generating required JavaScript code for the Web3Connect button in
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "api_key_secret": "<SECRET>" // YOUR API KEY SECRET,
   "redirect_url": "https://company.com/abc/def?g=h&userId=xxx" // For the redirection after the end-user finishes the association process
@@ -110,7 +112,7 @@ This API helps generating required JavaScript code for the Web3Connect button in
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": "function globalWeb3ConnectButtonOnClick() {...}", // JavaScript function code body
@@ -178,7 +180,7 @@ This implies that the end-user already knows which email is used for login.
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "email": "abc@def.com"
 }
@@ -186,7 +188,7 @@ This implies that the end-user already knows which email is used for login.
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -211,7 +213,7 @@ This will send a code to the mobile.
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "phone_number": "+8860912345678" // a valid mobile phone number in E.164 format
 }
@@ -219,7 +221,7 @@ This will send a code to the mobile.
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -240,7 +242,7 @@ This will send a code to the mobile.
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "tmp_token": "token string", // from step 1
   "code": "123456" // the verification code received by the phone
@@ -249,7 +251,7 @@ This will send a code to the mobile.
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": true, // phone verified
@@ -271,7 +273,7 @@ Please set the value of `txt_record` under the domain's TXT record (the domain i
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -296,7 +298,7 @@ Please set the value of `txt_record` under the domain's TXT record in step 1.
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": true, // domain verified
@@ -316,7 +318,7 @@ Please replace the `<id_wallet_address>` section in the url with the ID Wallet A
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -340,7 +342,7 @@ Please replace the `<id_wallet_address>` section in the url with the ID Wallet A
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -405,7 +407,7 @@ Please replace `<holder_id_wallet_address>` section in the url to the id_wallet_
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "metadata": {
     "static": {
@@ -485,7 +487,7 @@ Please replace `<holder_id_wallet_address>` section in the url to the id_wallet_
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -584,7 +586,7 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {}, // the NFT object, please refer to the response of mint nft
@@ -610,7 +612,7 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}], // the Array of NFT object. For each NFT object, please refer to the response of mint nft
@@ -638,7 +640,7 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}], // the Array of NFT object. For each NFT object, please refer to the response of mint nft
@@ -658,7 +660,7 @@ Please replace `<token_id>` section in the url with the real value (a hex string
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "to": "public" // or "private"
 }
@@ -666,7 +668,7 @@ Please replace `<token_id>` section in the url with the real value (a hex string
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": "public", // or "private"
@@ -692,7 +694,7 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 // each field can be set to undefined for ignoring the field matching
 {
   "issuer": "string match value",
@@ -720,7 +722,7 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}], // the Array of NFT object. For each NFT object, please refer to the response of mint nft
@@ -754,7 +756,7 @@ The QR Code will be only available for next 5 minutes, the scanner must scan thi
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   // this should be the current location of the holder
   "gps": {
@@ -766,7 +768,7 @@ The QR Code will be only available for next 5 minutes, the scanner must scan thi
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -791,7 +793,7 @@ The query param **`CODE`** is exactly from the qrcode image, the decoded content
 
 > Request Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 // this should be the current location of the scanner
 {
   "gps": {
@@ -803,7 +805,7 @@ The query param **`CODE`** is exactly from the qrcode image, the decoded content
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
@@ -823,12 +825,172 @@ Put the `code` from the response of step1 into the query param
 
 > Response Body JSON Sample (`Content-Type: application/json`)
 
-```js
+```javascript
 {
   "status": "ok",
   "result": {
     "token_id": "<VERIFIED_NFT_TOKEN_ID>" // null if not verified yet
   }
   "error": null
+}
+```
+
+# OpenID Connect (OIDC)
+
+Please obtain your `client_id` (your organization account's `id`) from Web3Connect beforehand.
+
+Also, please register your `redirect_uri`(s) with Web3Connect beforehand, otherwise the OIDC Provider will deny the Authorization Request.
+
+## OIDC Configuration
+
+```
+https://oidc2.web3connect.jp/.well-known/openid-configuration
+```
+
+## Auth Endpoint
+
+```
+https://oidc2.web3connect.jp
+```
+
+## Preparation
+
+1. Pick a standard OIDC or OAuth Client implementation as the framework or library.
+2. Choose Hybrid Flow or Implicit Flow based on the scenario.
+
+## Hybrid Flow (Obtaining Authorization Code and ID Token) Step 1
+
+- Make sure at the `redirect_uri`, there is a proper HTTP Server can handle the `response_mode` of `form_post`, where a POST HTTP request (`x-www-form-urlencoded`) is made to the `redirect_uri` when the Authorization Request finishes.
+- `state` and `nonce` should be generated randomly and properly in OIDC Client side.
+- Using **PKCE** and **S-256**(SHA-256) is a must for Code Challenge, please check `code_challenge_method` and `code_challenge` in the query params. These should be generated by the OIDC Client library or framework.
+- `scope` must be `openid profile`
+- `response_type` must be `code id_token`
+- `response_mode` can be `form_post` or `fragment`, `form_post` is recommended for Hybrid Flow.
+
+> Please memorize the value of the **Code Verifier** during generating the code challenge, it will be used in next steps.
+
+> To start a Hybrid Flow
+
+```http
+https://oidc2.web3connect.jp/auth
+  ?client_id=<Your Organization Account ID>
+  &redirect_uri=<The Redirect URI>
+  &scope=openid profile
+  &response_type=code id_token
+  &response_mode=form_post
+  &code_challenge_method=S256
+  &code_challenge=Nn9K_hdiApoT5lZ57NJ3JTrxIUmYiBW2Jm9v2RMGgdw
+  &state=6oys34lajmw
+  &nonce=lmqks95eaz
+```
+
+> Response (Form Body) to the `redirect_uri`
+
+```http
+code=WcvHHQQRHJ8dfWaxNMHednOxwvrsP6uh97Q8BJq9dER
+id_token=eyJhbGciOiJFUzI1NksiLCJ0eXAi.....FvCwaqwMvw
+state=6oys34lajmw
+```
+
+> The `id_token` in the response already contains the `sub` of the end-user, which is the `id_wallet_address` of the end-user.
+
+## Hybrid Flow Step 2 : Obtain Access Token with Authorization Code
+
+- `POST`
+- `https://oidc2.web3connect.jp/token`
+- `Content-Type: application/x-www-form-urlencoded`
+
+> Request
+
+```sh
+curl --request POST \
+     --url https://oidc2.web3connect.jp/token \
+     --header 'Content-Type: application/x-www-form-urlencoded' \
+     --data grant_type=authorization_code \
+     --data code='<The Authorization Code from previous step>' \
+     --data redirect_uri='<The Redirect URI>' \
+     --data code_verifier='<The Code Verifier used in the previous step>' \
+     --data client_id='<Your Organization Account ID>'
+```
+
+> Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+	"access_token": "_7kmwbZI.....vSR",
+	"expires_in": 3600,
+	"id_token": "eyJhbGciOiJFUz.....mAf8Vs5vgzg",
+	"scope": "openid profile",
+	"token_type": "Bearer"
+}
+```
+
+> Please use the value of `access_token` for the next step.
+
+## Hybrid Flow Step 3 : Obtain End-user's Claim with Access Token
+
+- `GET`
+- `https://oidc2.web3connect.jp/me`
+- `Authorization: Bearer <The Access Token obtained from the previous step>`
+
+> Request
+
+```sh
+curl --request GET \
+     --url https://oidc2.web3connect.jp/me \
+     --header 'Authorization: Bearer _7kmwbZI.....vSR'
+```
+
+> Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+	"sub": "0x7c7e0922c583c1764b6d52255d58066af7cb3cfe",
+	"id_wallet_address": "0x7c7e0922c583c1764b6d52255d58066af7cb3cfe"
+}
+```
+
+> Step 2 ~ Step 3 are unnecessary if the ID Token in Step 1 is enough for the scenario.
+
+## Implicit Flow (Obtaining ID Token directly)
+
+- `state` and `nonce` should be generated randomly and properly in OIDC Client side.
+- `scope` must be `openid profile`
+- `response_type` must be `id_token`
+- `response_mode` can be `form_post` or `fragment`, `fragment` is recommended for Implicit Flow.
+
+Please remember to make a proper handler at `redirect_uri` if `response_mode` is set to `form_post`, the HTTP request being made to the `redirect_uri` is same as in Hybrid Flow, basically a form body (`x-www-form-urlencoded`).
+
+> To start an Implicit Flow
+
+```http
+https://oidc2.web3connect.jp/auth
+  ?client_id=<Your Organization Account ID>
+  &redirect_uri=<The Redirect URI>
+  &scope=openid profile
+  &response_type=id_token
+  &response_mode=fragment
+  &state=h57c17pw8b6
+  &nonce=a2k8m15590n
+```
+
+> Values in fragment (`window.location.hash`)
+
+```html
+id_token=eyJhbGci...nmhg state=h57c17pw8b6
+```
+
+> ID Token in the Implicit Flow will contain `id_wallet_address` directly, after decoding the payload will look like:
+
+```javascript
+{
+   "sub": "0x7c7e0922c583c1764b6d52255d58066af7cb3cfe",
+   "id_wallet_address": "0x7c7e0922c583c1764b6d52255d58066af7cb3cfe",
+   "nonce": "a2k8m15590n",
+   "s_hash": "MTr5Del-UwmhaC6vVp6rQQ",
+   "aud": "75a60f56-4e55-2eec-78a9-c0bc2c326613",
+   "exp": 1666185426,
+   "iat": 1666181826,
+   "iss": "https://oidc2.web3connect.jp"
 }
 ```
