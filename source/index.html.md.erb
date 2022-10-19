@@ -5,6 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
   - http
   - shell
+  - html
 
 toc_footers:
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
@@ -129,7 +130,7 @@ For example, `userId=xxx` in the redirect url's query param (any query param is 
 The organization needs to embed the function code body in the `<script>...</script>` section in the header of the web page,  
 and bind the onclick event to the button like :
 
-```html
+```
 <head>
   <script>
     /* function globalWeb3ConnectButtonOnClick() {
@@ -871,7 +872,7 @@ https://oidc2.web3connect.jp
 
 > To start a Hybrid Flow
 
-```http
+```
 https://oidc2.web3connect.jp/auth
   ?client_id=<Your Organization Account ID>
   &redirect_uri=<The Redirect URI>
@@ -886,7 +887,7 @@ https://oidc2.web3connect.jp/auth
 
 > Response (Form Body) to the `redirect_uri`
 
-```http
+```
 code=WcvHHQQRHJ8dfWaxNMHednOxwvrsP6uh97Q8BJq9dER
 id_token=eyJhbGciOiJFUzI1NksiLCJ0eXAi.....FvCwaqwMvw
 state=6oys34lajmw
@@ -902,7 +903,7 @@ state=6oys34lajmw
 
 > Request
 
-```sh
+```
 curl --request POST \
      --url https://oidc2.web3connect.jp/token \
      --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -935,7 +936,7 @@ curl --request POST \
 
 > Request
 
-```sh
+```
 curl --request GET \
      --url https://oidc2.web3connect.jp/me \
      --header 'Authorization: Bearer _7kmwbZI.....vSR'
@@ -963,7 +964,7 @@ Please remember to make a proper handler at `redirect_uri` if `response_mode` is
 
 > To start an Implicit Flow
 
-```http
+```
 https://oidc2.web3connect.jp/auth
   ?client_id=<Your Organization Account ID>
   &redirect_uri=<The Redirect URI>
@@ -976,7 +977,7 @@ https://oidc2.web3connect.jp/auth
 
 > Values in fragment (`window.location.hash`)
 
-```html
+```
 id_token=eyJhbGci...nmhg state=h57c17pw8b6
 ```
 
