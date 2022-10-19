@@ -1230,9 +1230,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <li><code>response_mode</code> can be <code>form_post</code> or <code>fragment</code>, <code>form_post</code> is recommended for Hybrid Flow.</li>
 </ul>
 
-<blockquote>
-<p>Please memorize the value of the <strong>Code Verifier</strong> during generating the code challenge, it will be used in next steps.</p>
+<p><strong>Please memorize the value of the **Code Verifier</strong> while generating the code challenge, it will be used in next steps.**</p>
 
+<blockquote>
 <p>To start a Hybrid Flow</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp/auth
@@ -1337,7 +1337,7 @@ state=6oys34lajmw
   &amp;nonce=a2k8m15590n
 </code></pre></div>
 <blockquote>
-<p>Response in the fragment (<code>window.location.hash</code>) at <code>redirect_uri</code></p>
+<p>Response in the fragment (<code>#id_token=....</code>) (<code>window.location.hash</code>) at <code>redirect_uri</code></p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>id_token=eyJhbGci...nmhg state=h57c17pw8b6
 </code></pre></div>
