@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;javascript&quot;,&quot;http&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -306,6 +306,8 @@
       <img src="images/logo-6e5e85d5.jpg" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="http">http</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -424,6 +426,32 @@
               </ul>
           </li>
           <li>
+            <a href="#openid-connect-oidc" class="toc-h1 toc-link" data-title="OpenID Connect (OIDC)">OpenID Connect (OIDC)</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#oidc-configuration" class="toc-h2 toc-link" data-title="OIDC Configuration">OIDC Configuration</a>
+                  </li>
+                  <li>
+                    <a href="#auth-endpoint" class="toc-h2 toc-link" data-title="Auth Endpoint">Auth Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#preparation" class="toc-h2 toc-link" data-title="Preparation">Preparation</a>
+                  </li>
+                  <li>
+                    <a href="#hybrid-flow-obtaining-authorization-code-and-id-token-step-1" class="toc-h2 toc-link" data-title="Hybrid Flow (Obtaining Authorization Code and ID Token) Step 1">Hybrid Flow (Obtaining Authorization Code and ID Token) Step 1</a>
+                  </li>
+                  <li>
+                    <a href="#hybrid-flow-step-2-obtain-access-token-with-authorization-code" class="toc-h2 toc-link" data-title="Hybrid Flow Step 2 : Obtain Access Token with Authorization Code">Hybrid Flow Step 2 : Obtain Access Token with Authorization Code</a>
+                  </li>
+                  <li>
+                    <a href="#hybrid-flow-step-3-obtain-end-user-39-s-claim-with-access-token" class="toc-h2 toc-link" data-title="Hybrid Flow Step 3 : Obtain End-user's Claim with Access Token">Hybrid Flow Step 3 : Obtain End-user's Claim with Access Token</a>
+                  </li>
+                  <li>
+                    <a href="#implicit-flow-obtaining-id-token-directly" class="toc-h2 toc-link" data-title="Implicit Flow (Obtaining ID Token directly)">Implicit Flow (Obtaining ID Token directly)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -449,7 +477,7 @@
 </ul>
 
 <p><strong>DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.</strong></p>
-<h2 id='common-response-body-format'>Common Response Body Format</h2><div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<h2 id='common-response-body-format'>Common Response Body Format</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// "error"</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// null, Object, Array, Boolean, String or Number</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span> <span class="c1">// null, Error Message in String or Error Message in Object</span>
@@ -468,14 +496,14 @@
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ACCESS_TOKEN&gt;</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -492,7 +520,7 @@
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span> <span class="c1">// YOUR API KEY SECRET,</span>
   <span class="dl">"</span><span class="s2">redirect_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://company.com/abc/def?g=h&amp;userId=xxx</span><span class="dl">"</span> <span class="c1">// For the redirection after the end-user finishes the association process</span>
 <span class="p">}</span>
@@ -500,7 +528,7 @@
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">function globalWeb3ConnectButtonOnClick() {...}</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// JavaScript function code body</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -553,14 +581,14 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span><span class="p">,</span>
@@ -582,14 +610,14 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">phone_number</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">+8860912345678</span><span class="dl">"</span> <span class="c1">// a valid mobile phone number in E.164 format</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">tmp_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">token string</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// this is critical for step 2</span>
@@ -609,7 +637,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">tmp_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">token string</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// from step 1</span>
   <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">123456</span><span class="dl">"</span> <span class="c1">// the verification code received by the phone</span>
 <span class="p">}</span>
@@ -617,7 +645,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// phone verified</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -638,7 +666,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">txt_record</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">web3connect-domain-verification=XXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
@@ -662,7 +690,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// domain verified</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -679,7 +707,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdef</span><span class="dl">"</span><span class="p">,</span>
@@ -702,7 +730,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">account_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6aecfd05-4de5-31c3-052c-ce3dae83057d</span><span class="dl">"</span><span class="p">,</span>
@@ -764,7 +792,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">metadata</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">static</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
       <span class="c1">// all required, except "expired_at"</span>
@@ -843,7 +871,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string</span><span class="dl">"</span><span class="p">,</span>
@@ -941,7 +969,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -966,7 +994,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -993,7 +1021,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -1012,14 +1040,14 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">to</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span> <span class="c1">// or "private"</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// or "private"</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -1044,7 +1072,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// each field can be set to undefined for ignoring the field matching</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// each field can be set to undefined for ignoring the field matching</span>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">issuer</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">contents_provider</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">string match value</span><span class="dl">"</span><span class="p">,</span>
@@ -1071,7 +1099,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}],</span> <span class="c1">// the Array of NFT object. For each NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
@@ -1106,7 +1134,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="c1">// this should be the current location of the holder</span>
   <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">26.583193</span><span class="dl">"</span><span class="p">,</span>
@@ -1117,7 +1145,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1234567890</span><span class="dl">"</span><span class="p">,</span>
@@ -1141,7 +1169,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// this should be the current location of the scanner</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// this should be the current location of the scanner</span>
 <span class="p">{</span>
   <span class="dl">"</span><span class="s2">gps</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">latitude</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">26.583193</span><span class="dl">"</span><span class="p">,</span>
@@ -1152,7 +1180,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;VERIFIED_NFT_TOKEN_ID&gt;</span><span class="dl">"</span>
@@ -1171,12 +1199,157 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;VERIFIED_NFT_TOKEN_ID&gt;</span><span class="dl">"</span> <span class="c1">// null if not verified yet</span>
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div><h1 id='openid-connect-oidc'>OpenID Connect (OIDC)</h1>
+<p>Please obtain your <code>client_id</code> (your organization account&#39;s <code>id</code>) from Web3Connect beforehand.</p>
+
+<p>Also, please register your <code>redirect_uri</code>(s) with Web3Connect beforehand, otherwise the OIDC Provider will deny the Authorization Request.</p>
+<h2 id='oidc-configuration'>OIDC Configuration</h2><div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp/.well-known/openid-configuration
+</code></pre></div><h2 id='auth-endpoint'>Auth Endpoint</h2><div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp
+</code></pre></div><h2 id='preparation'>Preparation</h2>
+<ol>
+<li>Pick a standard OIDC or OAuth Client implementation as the framework or library.</li>
+<li>Choose Hybrid Flow or Implicit Flow based on the scenario.</li>
+</ol>
+<h2 id='hybrid-flow-obtaining-authorization-code-and-id-token-step-1'>Hybrid Flow (Obtaining Authorization Code and ID Token) Step 1</h2>
+<ul>
+<li>Make sure at the <code>redirect_uri</code>, there is a proper HTTP Server can handle the <code>response_mode</code> of <code>form_post</code>, where a POST HTTP request (<code>x-www-form-urlencoded</code>) is made to the <code>redirect_uri</code> when the Authorization Request finishes.</li>
+<li><code>state</code> and <code>nonce</code> should be generated randomly and properly in OIDC Client side.</li>
+<li>Using <strong>PKCE</strong> and <strong>S-256</strong>(SHA-256) is a must for Code Challenge, please check <code>code_challenge_method</code> and <code>code_challenge</code> in the query params. These should be generated by the OIDC Client library or framework.</li>
+<li><code>scope</code> must be <code>openid profile</code></li>
+<li><code>response_type</code> must be <code>code id_token</code></li>
+<li><code>response_mode</code> can be <code>form_post</code> or <code>fragment</code>, <code>form_post</code> is recommended for Hybrid Flow.</li>
+</ul>
+
+<blockquote>
+<p>Please memorize the value of the <strong>Code Verifier</strong> during generating the code challenge, it will be used in next steps.</p>
+
+<p>To start a Hybrid Flow</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">https://oidc2.web3connect.jp/auth
+  ?client_id=&lt;Your Organization Account ID&gt;
+  &amp;redirect_uri=&lt;The Redirect URI&gt;
+  &amp;scope=openid profile
+  &amp;response_type=code id_token
+  &amp;response_mode=form_post
+  &amp;code_challenge_method=S256
+  &amp;code_challenge=Nn9K_hdiApoT5lZ57NJ3JTrxIUmYiBW2Jm9v2RMGgdw
+  &amp;state=6oys34lajmw
+  &amp;nonce=lmqks95eaz
+</span></code></pre></div>
+<blockquote>
+<p>Response (Form Body) to the <code>redirect_uri</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">code=WcvHHQQRHJ8dfWaxNMHednOxwvrsP6uh97Q8BJq9dER
+id_token=eyJhbGciOiJFUzI1NksiLCJ0eXAi.....FvCwaqwMvw
+state=6oys34lajmw
+</span></code></pre></div>
+<blockquote>
+<p>The <code>id_token</code> in the response already contains the <code>sub</code> of the end-user, which is the <code>id_wallet_address</code> of the end-user.</p>
+</blockquote>
+<h2 id='hybrid-flow-step-2-obtain-access-token-with-authorization-code'>Hybrid Flow Step 2 : Obtain Access Token with Authorization Code</h2>
+<ul>
+<li><code>POST</code></li>
+<li><code>https://oidc2.web3connect.jp/token</code></li>
+<li><code>Content-Type: application/x-www-form-urlencoded</code></li>
+</ul>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight sh tab-shell"><code>curl <span class="nt">--request</span> POST <span class="se">\</span>
+     <span class="nt">--url</span> https://oidc2.web3connect.jp/token <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+     <span class="nt">--data</span> <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\</span>
+     <span class="nt">--data</span> <span class="nv">code</span><span class="o">=</span><span class="s1">'&lt;The Authorization Code from previous step&gt;'</span> <span class="se">\</span>
+     <span class="nt">--data</span> <span class="nv">redirect_uri</span><span class="o">=</span><span class="s1">'&lt;The Redirect URI&gt;'</span> <span class="se">\</span>
+     <span class="nt">--data</span> <span class="nv">code_verifier</span><span class="o">=</span><span class="s1">'&lt;The Code Verifier used in the previous step&gt;'</span> <span class="se">\</span>
+     <span class="nt">--data</span> <span class="nv">client_id</span><span class="o">=</span><span class="s1">'&lt;Your Organization Account ID&gt;'</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">access_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">_7kmwbZI.....vSR</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">expires_in</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJhbGciOiJFUz.....mAf8Vs5vgzg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">scope</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">openid profile</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">token_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bearer</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Please use the value of <code>access_token</code> for the next step.</p>
+</blockquote>
+<h2 id='hybrid-flow-step-3-obtain-end-user-39-s-claim-with-access-token'>Hybrid Flow Step 3 : Obtain End-user&#39;s Claim with Access Token</h2>
+<ul>
+<li><code>GET</code></li>
+<li><code>https://oidc2.web3connect.jp/me</code></li>
+<li><code>Authorization: Bearer &lt;The Access Token obtained from the previous step&gt;</code></li>
+</ul>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<div class="highlight"><pre class="highlight sh tab-shell"><code>curl <span class="nt">--request</span> GET <span class="se">\</span>
+     <span class="nt">--url</span> https://oidc2.web3connect.jp/me <span class="se">\</span>
+     <span class="nt">--header</span> <span class="s1">'Authorization: Bearer _7kmwbZI.....vSR'</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x7c7e0922c583c1764b6d52255d58066af7cb3cfe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x7c7e0922c583c1764b6d52255d58066af7cb3cfe</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Step 2 ~ Step 3 are unnecessary if the ID Token in Step 1 is enough for the scenario.</p>
+</blockquote>
+<h2 id='implicit-flow-obtaining-id-token-directly'>Implicit Flow (Obtaining ID Token directly)</h2>
+<ul>
+<li><code>state</code> and <code>nonce</code> should be generated randomly and properly in OIDC Client side.</li>
+<li><code>scope</code> must be <code>openid profile</code></li>
+<li><code>response_type</code> must be <code>id_token</code></li>
+<li><code>response_mode</code> can be <code>form_post</code> or <code>fragment</code>, <code>fragment</code> is recommended for Implicit Flow.</li>
+</ul>
+
+<p>Please remember to make a proper handler at <code>redirect_uri</code> if <code>response_mode</code> is set to <code>form_post</code>, the HTTP request being made to the <code>redirect_uri</code> is same as in Hybrid Flow, basically a form body (<code>x-www-form-urlencoded</code>).</p>
+
+<blockquote>
+<p>To start an Implicit Flow</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="err">https://oidc2.web3connect.jp/auth
+  ?client_id=&lt;Your Organization Account ID&gt;
+  &amp;redirect_uri=&lt;The Redirect URI&gt;
+  &amp;scope=openid profile
+  &amp;response_type=id_token
+  &amp;response_mode=fragment
+  &amp;state=h57c17pw8b6
+  &amp;nonce=a2k8m15590n
+</span></code></pre></div>
+<blockquote>
+<p>Values in fragment (<code>window.location.hash</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight html tab-html"><code>id_token=eyJhbGci...nmhg state=h57c17pw8b6
+</code></pre></div>
+<blockquote>
+<p>ID Token in the Implicit Flow will contain <code>id_wallet_address</code> directly, after decoding the payload will look like:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+   <span class="dl">"</span><span class="s2">sub</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x7c7e0922c583c1764b6d52255d58066af7cb3cfe</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x7c7e0922c583c1764b6d52255d58066af7cb3cfe</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">nonce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a2k8m15590n</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">s_hash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MTr5Del-UwmhaC6vVp6rQQ</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">aud</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">75a60f56-4e55-2eec-78a9-c0bc2c326613</span><span class="dl">"</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">exp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1666185426</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">iat</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1666181826</span><span class="p">,</span>
+   <span class="dl">"</span><span class="s2">iss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://oidc2.web3connect.jp</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='errors'>Errors</h1>
 <p>WIP</p>
@@ -1185,6 +1358,8 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="http">http</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
