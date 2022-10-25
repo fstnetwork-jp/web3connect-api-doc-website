@@ -475,6 +475,7 @@
 <li><p><code>API_KEY_SECRET</code> can be obtained from Web3Connect, and it should be stored in a safe place by the organization.</p></li>
 <li><p><code>API_KEY_SECRET</code> is used for critical APIs, such as refreshing <code>ACCESS_TOKEN</code> and generating one-time-use javascript code.</p></li>
 <li><p><code>API_KEY_SECRET</code> is never used in the header in HTTP request.</p></li>
+<li><p><code>ACCESS_TOKEN</code> here <strong>is different</strong> from the access_token used in OIDC section.</p></li>
 </ul>
 
 <p><strong>DO NOT USE API KEY SECRET IN PUBLIC ZONE OR ANY FRONTEND.</strong></p>
@@ -1153,6 +1154,16 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
     <span class="dl">"</span><span class="s2">qr_code_base64</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAgAAAQICAYAAACAmekaAAAAAXNSR0IArs4c6QAAIABJREFUeF7snUGW3TgOBF33P7TnTXvtLz5nRQFJxaxFKBlIgBT8u+br9+/fv3/5PwlIQAISkIAEJCABCUhAAhKQgAReTeDLAcGr8+/mJSABCUhAAhKQgAQkIAEJSEAC/xFwQKARJCABCUhAAhKQgAQkIAEJSEACEnBAoAckIAEJSEACEpCABCQgAQlIQAIS8BcEekACEpCABCQgAQlIQAISkIAEJCAB/xMDPSABCUhAAhKQgAQkIAEJSEACEpDA/wn4Nwj0gQQkIAEJSEACEpCABCQgAQlIQAIOCPSABCQgAQlIQAISkIAEJCABCUhAAv6CQA9IQAISkIAEJCABCUhAAhKQgAQk4H9ioAckIAEJSEACEpCABCQgAQlIQAIS+D8B/waBPpCABCQgAQlIQAISkIAEJCABCUjAAYEekIAEJCABCUhAAhKQgAQkIAEJSMBfEOgBCUhAAhKQgAQkIAEJSEACEpCABPxPDPSABCQgAQlIQAISkIAEJCABCUhAAv8n4N8g0AcSkIAEJCABCUhAAhKQgAQkIAEJOCDQAxKQgAQkIAEJSEACEpCABCQgAQn4CwI9IAEJSEACEpCABCQgAQlIQAISkID/iYEekIAEJCABCUhAAhKQgAQkIAEJSOD/BPwbBPpAAhKQgAQkIAEJSEACEpCABCQgAQcEekACEpCABCQgAQlIQAISkIAEJCABf0GgByQgAQlIQAISkIAEJCABCUhAAhLwPzHQAxKQgAQkIAEJSEACEpCABCQgAQn8n4B/g0AfSEACEpCABCQgAQlIQAISkIAEJOCAQA9IQAISkIAEJCABCUhAAhKQgAQk8AO/IPj6+pKzBNYS+P3791ptJ8Lo+mrnc8IweYbmn2g7WdueX5o/zUf9Jy71mb8RoP3ZTp6ur3Y...</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>The content of the QR Code is a JSON String</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1UV7xBEH6hLWec5s5VzT6MBNrPBaTJJA</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">nft_verification_code</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='verify-qr-code-for-nft-verification-by-the-scanner-nft-verification-step-2'>Verify QR Code for NFT verification by the scanner (NFT Verification Step 2)</h2>
 <p>The scanner scanned the qrcode.</p>
