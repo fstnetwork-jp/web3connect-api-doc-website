@@ -1223,9 +1223,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 
 <p>Also, please register your <code>redirect_uri</code>(s) with Web3Connect beforehand, otherwise the OIDC Provider will deny the Authorization Request.</p>
 <h2 id='oidc-configuration'>OIDC Configuration</h2>
-<p><code>https://oidc2.web3connect.jp/.well-known/openid-configuration</code></p>
+<p><code>https://oidc.web3connect.jp/.well-known/openid-configuration</code></p>
 <h2 id='auth-endpoint'>Auth Endpoint</h2>
-<p><code>https://oidc2.web3connect.jp/auth</code></p>
+<p><code>https://oidc.web3connect.jp/oauth2/auth</code></p>
 <h2 id='preparation'>Preparation</h2>
 <ol>
 <li>Pick a standard OIDC or OAuth Client implementation as the framework or library.</li>
@@ -1246,7 +1246,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <blockquote>
 <p>To start a Hybrid Flow</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp/auth
+<div class="highlight"><pre class="highlight plaintext"><code>https://oidc.web3connect.jp/oauth2/auth
   ?client_id=&lt;Your Organization Account ID&gt;
   &amp;redirect_uri=&lt;The Redirect URI&gt;
   &amp;scope=openid profile
@@ -1270,7 +1270,7 @@ state=6oys34lajmw
 <h2 id='hybrid-flow-step-2-obtain-access-token-with-authorization-code'>Hybrid Flow Step 2 : Obtain Access Token with Authorization Code</h2>
 <ul>
 <li><code>POST</code></li>
-<li><code>https://oidc2.web3connect.jp/token</code></li>
+<li><code>https://oidc.web3connect.jp/oauth2/token</code></li>
 <li><code>Content-Type: application/x-www-form-urlencoded</code></li>
 </ul>
 
@@ -1278,7 +1278,7 @@ state=6oys34lajmw
 <p>Request</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>curl --request POST \
-     --url https://oidc2.web3connect.jp/token \
+     --url https://oidc.web3connect.jp/oauth2/token \
      --header 'Content-Type: application/x-www-form-urlencoded' \
      --data grant_type=authorization_code \
      --data code='&lt;The Authorization Code from previous step&gt;' \
@@ -1303,7 +1303,7 @@ state=6oys34lajmw
 <h2 id='hybrid-flow-step-3-obtain-end-user-39-s-claim-with-access-token'>Hybrid Flow Step 3 : Obtain End-user&#39;s Claim with Access Token</h2>
 <ul>
 <li><code>GET</code></li>
-<li><code>https://oidc2.web3connect.jp/me</code></li>
+<li><code>https://oidc.web3connect.jp/userinfo</code></li>
 <li><code>Authorization: Bearer &lt;The Access Token obtained from the previous step&gt;</code></li>
 </ul>
 
@@ -1311,7 +1311,7 @@ state=6oys34lajmw
 <p>Request</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>curl --request GET \
-     --url https://oidc2.web3connect.jp/me \
+     --url https://oidc.web3connect.jp/userinfo \
      --header 'Authorization: Bearer _7kmwbZI.....vSR'
 </code></pre></div>
 <blockquote>
@@ -1338,7 +1338,7 @@ state=6oys34lajmw
 <blockquote>
 <p>To start an Implicit Flow</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>https://oidc2.web3connect.jp/auth
+<div class="highlight"><pre class="highlight plaintext"><code>https://oidc.web3connect.jp/oauth2/auth
   ?client_id=&lt;Your Organization Account ID&gt;
   &amp;redirect_uri=&lt;The Redirect URI&gt;
   &amp;scope=openid profile
@@ -1363,7 +1363,7 @@ state=6oys34lajmw
    <span class="dl">"</span><span class="s2">aud</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">75a6....13</span><span class="dl">"</span><span class="p">,</span>
    <span class="dl">"</span><span class="s2">exp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1666185426</span><span class="p">,</span>
    <span class="dl">"</span><span class="s2">iat</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1666181826</span><span class="p">,</span>
-   <span class="dl">"</span><span class="s2">iss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://oidc2.web3connect.jp</span><span class="dl">"</span>
+   <span class="dl">"</span><span class="s2">iss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://oidc.web3connect.jp</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='errors'>Errors</h1>
 <p>WIP</p>
