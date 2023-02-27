@@ -401,6 +401,9 @@
                     <a href="#fetch-nft-info" class="toc-h2 toc-link" data-title="Fetch NFT info">Fetch NFT info</a>
                   </li>
                   <li>
+                    <a href="#update-nft-dynamic-metadata" class="toc-h2 toc-link" data-title="Update NFT dynamic metadata">Update NFT dynamic metadata</a>
+                  </li>
+                  <li>
                     <a href="#list-nfts-being-held-by-an-id-wallet-end-user-account" class="toc-h2 toc-link" data-title="List NFTs being held by an ID Wallet (End-user Account)">List NFTs being held by an ID Wallet (End-user Account)</a>
                   </li>
                   <li>
@@ -979,6 +982,37 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object, please refer to the response of mint nft</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='update-nft-dynamic-metadata'>Update NFT dynamic metadata</h2>
+<p>This action can be performed only by the minter of the NFT (Organization Account)</p>
+
+<p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
+
+<p>Please check the response body json in <a href="#mint-nft-by-organization-account">Mint NFT by Organization Account</a> for the schema of the NFT object.</p>
+
+<ul>
+<li><code>PUT</code></li>
+<li><code>/nft/&lt;token_id&gt;/metadata/dynamic</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<blockquote>
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">key1</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">value1</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// any key-value supported for dynamic metadata, or any custom key-value</span>
+  <span class="dl">"</span><span class="s2">key2</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">value2</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">key3</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">value3</span><span class="dl">"</span>
+  <span class="c1">// ....</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object with updated dynamic metadata, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='list-nfts-being-held-by-an-id-wallet-end-user-account'>List NFTs being held by an ID Wallet (End-user Account)</h2>
