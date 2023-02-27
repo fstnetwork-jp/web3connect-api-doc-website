@@ -597,6 +597,39 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
 }
 ```
 
+## Update NFT dynamic metadata
+
+This action can be performed only by the minter of the NFT (Organization Account)
+
+Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
+
+Please check the response body json in [Mint NFT by Organization Account](#mint-nft-by-organization-account) for the schema of the NFT object.
+
+- `PUT`
+- `/nft/<token_id>/metadata/dynamic`
+- **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
+
+> Request Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "key1": "value1", // any key-value supported for dynamic metadata, or any custom key-value
+  "key2": "value2",
+  "key3": "value3"
+  // ....
+}
+```
+
+> Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "status": "ok",
+  "result": {}, // the NFT object with updated dynamic metadata, please refer to the response of mint nft
+  "error": null
+}
+```
+
 ## List NFTs being held by an ID Wallet (End-user Account)
 
 Please replace the value `<ID_WALLET_ADDRESS>` to the actual one in the url.
