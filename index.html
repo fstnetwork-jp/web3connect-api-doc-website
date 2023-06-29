@@ -338,6 +338,12 @@
                   <li>
                     <a href="#refresh-obtain-access-token-with-api-key-secret" class="toc-h2 toc-link" data-title="Refresh (Obtain) Access Token with API Key Secret">Refresh (Obtain) Access Token with API Key Secret</a>
                   </li>
+                  <li>
+                    <a href="#check-account-type-and-address" class="toc-h2 toc-link" data-title="Check Account Type and Address">Check Account Type and Address</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-obtain-access-token-with-api-key-secret-2" class="toc-h2 toc-link" data-title="Refresh (Obtain) Access Token with API Key Secret">Refresh (Obtain) Access Token with API Key Secret</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -516,6 +522,37 @@
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ACCESS_TOKEN&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='check-account-type-and-address'>Check Account Type and Address</h2>
+<p><strong>Please obtain your API Key Secret from Web3Connect beforehand.</strong></p>
+
+<p>An API Key Secret can be used to obtain the access token and confirmation token.</p>
+<h2 id='refresh-obtain-access-token-with-api-key-secret-2'>Refresh (Obtain) Access Token with API Key Secret</h2>
+<ul>
+<li><code>POST</code></li>
+<li><code>/auth/account/access_token/check_account_type_and_address</code></li>
+<li><strong>No Authorization Header required</strong></li>
+</ul>
+
+<blockquote>
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;SECRET&gt;</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">account_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;YOUR_ACCOUNT_ID&gt;</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address_eth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ID_WALLET_ADDRESS&gt;</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address_suri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;ID_WALLET_ADDRESS_SURI&gt;</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">account_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">organization</span><span class="dl">"</span> <span class="c1">// "end_user"</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='account-association-amp-end-user-import'>Account Association &amp; End-user Import</h1><h2 id='generate-web3connect-button-onclick-javascript-function-code-body'>Generate Web3Connect Button OnClick JavaScript function code body</h2>
