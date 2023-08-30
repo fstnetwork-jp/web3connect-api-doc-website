@@ -404,6 +404,9 @@
                     <a href="#fetch-nft-info" class="toc-h2 toc-link" data-title="Fetch NFT info">Fetch NFT info</a>
                   </li>
                   <li>
+                    <a href="#transfer-nft" class="toc-h2 toc-link" data-title="Transfer NFT">Transfer NFT</a>
+                  </li>
+                  <li>
                     <a href="#update-nft-dynamic-metadata" class="toc-h2 toc-link" data-title="Update NFT dynamic metadata">Update NFT dynamic metadata</a>
                   </li>
                   <li>
@@ -636,7 +639,9 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x....</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x....</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address_eth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x....</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">id_wallet_address_suri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f....</span><span class="dl">"</span>
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
@@ -834,6 +839,12 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </ul>
 
 <blockquote>
+<p>Body JSON Spec and Sample</p>
+</blockquote>
+
+<p>https://docs.google.com/spreadsheets/d/1y2TTQHOvqhNcPiyFB877_60Nj-PhwQwrNN3Y8CsSiSw</p>
+
+<blockquote>
 <p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
@@ -1018,7 +1029,19 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> <span class="c1">// the NFT object, please refer to the response of mint nft</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='update-nft-dynamic-metadata'>Update NFT dynamic metadata</h2>
+</code></pre></div><h2 id='transfer-nft'>Transfer NFT</h2>
+<p>Transfer the NFT to another end-user (receiver)</p>
+
+<p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
+
+<p>Please replace <code>&lt;receiver_id_wallet_address&gt;</code> section in the url with receiver&#39;s id_wallet_address (eth).</p>
+
+<ul>
+<li><code>PUT</code></li>
+<li><code>/nft/&lt;token_id&gt;/transfer/to/&lt;receiver_id_wallet_address&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+<h2 id='update-nft-dynamic-metadata'>Update NFT dynamic metadata</h2>
 <p>This action can be performed only by the minter of the NFT (Organization Account)</p>
 
 <p>Please replace <code>&lt;token_id&gt;</code> section in the url with the real value (a hex string, e.g. <code>0xabcdef123123123123...</code>).</p>
