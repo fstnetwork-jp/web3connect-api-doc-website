@@ -229,7 +229,9 @@ This implies that the end-user already knows which email is used for login.
   "status": "ok",
   "result": {
     "email": "abc@def.com",
-    "id_wallet_address": "0x...."
+    "id_wallet_address": "0x....",
+    "id_wallet_address_eth": "0x....",
+    "id_wallet_address_suri": "5f...."
   }
   "error": null
 }
@@ -441,6 +443,10 @@ Please replace `<holder_id_wallet_address>` section in the url to the id_wallet_
 - `/nft/mint/to/<holder_id_wallet_address>`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
+> Body JSON Spec and Sample
+
+https://docs.google.com/spreadsheets/d/1y2TTQHOvqhNcPiyFB877_60Nj-PhwQwrNN3Y8CsSiSw
+
 > Request Body JSON Sample (`Content-Type: application/json`)
 
 ```javascript
@@ -629,6 +635,18 @@ Please check the response body json in [Mint NFT by Organization Account](#mint-
   "error": null
 }
 ```
+
+## Transfer NFT
+
+Transfer the NFT to another end-user (receiver)
+
+Please replace `<token_id>` section in the url with the real value (a hex string, e.g. `0xabcdef123123123123...`).
+
+Please replace `<receiver_id_wallet_address>` section in the url with receiver's id_wallet_address (eth).
+
+- `PUT`
+- `/nft/<token_id>/transfer/to/<receiver_id_wallet_address>`
+- **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
 ## Update NFT dynamic metadata
 
