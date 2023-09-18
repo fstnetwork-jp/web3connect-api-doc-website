@@ -433,6 +433,9 @@
                   <li>
                     <a href="#poll-nft-verification-result" class="toc-h2 toc-link" data-title="Poll NFT Verification result">Poll NFT Verification result</a>
                   </li>
+                  <li>
+                    <a href="#check-nft-related-transactions-history" class="toc-h2 toc-link" data-title="Check NFT related transactions history">Check NFT related transactions history</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1313,6 +1316,43 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
     <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;VERIFIED_NFT_TOKEN_ID&gt;</span><span class="dl">"</span> <span class="c1">// null if not verified yet</span>
   <span class="p">}</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='check-nft-related-transactions-history'>Check NFT related transactions history</h2>
+<ul>
+<li><code>GET</code></li>
+<li><code>/nft/:token_id/qr_code/result?c=&lt;CODE&gt;</code></li>
+<li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
+</ul>
+
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">token_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xf27cb07069a1de3da2f539f79ef7d2d080ecc8e3b7440bed6b975963786d0b5f</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">transactions</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">network</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">trackId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-09-18T22:53:19.065Z:o1eDTXGPYJdC9jby</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1033784-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1033784</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">mint</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">network</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">trackId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-09-18T22:53:19.065Z:o1eDTXGPYJdC9jby</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1033784-2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">blockNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1033784</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784</span><span class="dl">"</span>
+        <span class="p">},</span>
+        <span class="dl">"</span><span class="s2">transfers</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="dl">"</span><span class="s2">burn</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='openid-connect-oidc'>OpenID Connect (OIDC)</h1>
 <p>Please obtain your <code>client_id</code> (your organization account&#39;s <code>id</code>) from Web3Connect beforehand.</p>
