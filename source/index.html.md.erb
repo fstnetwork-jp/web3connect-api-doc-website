@@ -933,6 +933,44 @@ Put the `code` from the response of step1 into the query param
 }
 ```
 
+## Check NFT related transactions history
+
+- `GET`
+- `/nft/:token_id/qr_code/result?c=<CODE>`
+- **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
+
+> Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+	"status": "ok",
+	"result": {
+		"token_id": "0xf27cb07069a1de3da2f539f79ef7d2d080ecc8e3b7440bed6b975963786d0b5f",
+		"transactions": [
+			{
+				"network": 7,
+				"trackId": "2023-09-18T22:53:19.065Z:o1eDTXGPYJdC9jby",
+				"transactionId": "1033784-2",
+				"blockNumber": "1033784",
+				"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2",
+				"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784"
+			}
+		],
+		"mint": {
+			"network": 7,
+			"trackId": "2023-09-18T22:53:19.065Z:o1eDTXGPYJdC9jby",
+			"transactionId": "1033784-2",
+			"blockNumber": "1033784",
+			"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2",
+			"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784"
+		},
+		"transfers": [],
+		"burn": null
+	},
+	"error": null
+}
+```
+
 # OpenID Connect (OIDC)
 
 Please obtain your `client_id` (your organization account's `id`) from Web3Connect beforehand.
