@@ -938,7 +938,7 @@ Put the `code` from the response of step1 into the query param
 ## Check NFT related transactions history
 
 - `GET`
-- `/nft/:token_id/qr_code/result?c=<CODE>`
+- `/nft/:token_id/history`
 - **Authorization Header required (`Authorization: Bearer <ACCESS_TOKEN>`)**
 
 > Response Body JSON Sample (`Content-Type: application/json`)
@@ -956,6 +956,14 @@ Put the `code` from the response of step1 into the query param
 				"blockNumber": "1033784",
 				"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2",
 				"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784"
+			},
+			{
+				"network": 7,
+				"trackId": "2023-09-18T23:36:58.364Z:V6UJMYYNrerdquUr",
+				"transactionId": "1034001-2",
+				"blockNumber": "1034001",
+				"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1034001-2",
+				"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1034001"
 			}
 		],
 		"mint": {
@@ -966,7 +974,16 @@ Put the `code` from the response of step1 into the query param
 			"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2",
 			"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784"
 		},
-		"transfers": [],
+		"transfers": [
+			{
+				"network": 7,
+				"trackId": "2023-09-18T23:36:58.364Z:V6UJMYYNrerdquUr",
+				"transactionId": "1034001-2",
+				"blockNumber": "1034001",
+				"explorerUrl": "https://explorer.testnet.thxnet.org/lmt/extrinsic/1034001-2",
+				"panelUrl": "https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1034001"
+			}
+		],
 		"burn": null
 	},
 	"error": null
