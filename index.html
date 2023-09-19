@@ -1324,7 +1324,7 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
 </code></pre></div><h2 id='check-nft-related-transactions-history'>Check NFT related transactions history</h2>
 <ul>
 <li><code>GET</code></li>
-<li><code>/nft/:token_id/qr_code/result?c=&lt;CODE&gt;</code></li>
+<li><code>/nft/:token_id/history</code></li>
 <li><strong>Authorization Header required (<code>Authorization: Bearer &lt;ACCESS_TOKEN&gt;</code>)</strong></li>
 </ul>
 
@@ -1343,6 +1343,14 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
                 <span class="dl">"</span><span class="s2">blockNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1033784</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">network</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">trackId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-09-18T23:36:58.364Z:V6UJMYYNrerdquUr</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1034001-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1034001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1034001-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1034001</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">],</span>
         <span class="dl">"</span><span class="s2">mint</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -1353,7 +1361,16 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
             <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1033784-2</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1033784</span><span class="dl">"</span>
         <span class="p">},</span>
-        <span class="dl">"</span><span class="s2">transfers</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="dl">"</span><span class="s2">transfers</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">network</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">trackId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-09-18T23:36:58.364Z:V6UJMYYNrerdquUr</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transactionId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1034001-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockNumber</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1034001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">explorerUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://explorer.testnet.thxnet.org/lmt/extrinsic/1034001-2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">panelUrl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://panel.testnet.thxnet.org/?rpc=wss%3A%2F%2Fnode.lmt.testnet.thxnet.org%2Farchive-001%2Fws#/explorer/query/1034001</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
         <span class="dl">"</span><span class="s2">burn</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
