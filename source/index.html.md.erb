@@ -237,6 +237,107 @@ This implies that the end-user already knows which email is used for login.
 }
 ```
 
+## Import Existing End-users with their emails in batch (Submit)
+
+This implies that the end-user already knows which email is used for login.
+
+- `POST`
+- `/account/import/batch/submit`
+- **No Authorization Header required**
+
+> Request Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "api_key_secret": "<API_KEY_SECRET>",
+  "emails": ["abc@def.com", "abc2@def.com"] // max number of emails in a batch is 10000
+}
+```
+
+> Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "status": "ok",
+  "result": {
+    "batch_id": "2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F"
+  },
+  "error": null
+}
+```
+
+Please use the batch_id to poll the result in next method.
+
+## Import Existing End-users with their emails in batch (Check)
+
+This implies that the end-user already knows which email is used for login.
+
+- `POST`
+- `/account/import/batch/check`
+- **No Authorization Header required**
+
+> Request Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "api_key_secret": "<API_KEY_SECRET>",
+  "batch_id": "2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F"
+}
+```
+
+> (Running) Response Body JSON Sample (`Content-Type: application/json`)
+
+```javascript
+{
+  "status": "ok",
+  "result": {
+    "batch_result": {
+      "batch_id": "2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F",
+      "finished_at": "",
+      "result": [],
+      "started_at": "2023-10-18T04:38:18.615Z",
+      "status": "running"
+    }
+  },
+  "error": null
+}
+```
+
+> (Done) Response Body JSON Sample (`Content-Type: application/json`)
+
+There can be `"ok": false`, meaning the id-wallet creation with the email was failed.
+
+```javascript
+{
+  "status": "ok",
+  "result": {
+    "batch_result": {
+      "batch_id": "2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F",
+      "finished_at": "2023-10-18T04:38:19.389Z",
+      "result": [
+        {
+          "email": "abc@def.com",
+          "id_wallet_address": "0xa20165...",
+          "id_wallet_address_eth": "0xa20165...",
+          "id_wallet_address_suri": "5DpyvArpUV6H...",
+          "ok": true
+        },
+        {
+          "email": "abc2@def.com",
+          "id_wallet_address": "",
+          "id_wallet_address_eth": "",
+          "id_wallet_address_suri": "",
+          "ok": false
+        }
+      ],
+      "started_at": "2023-10-18T04:38:18.615Z",
+      "status": "done"
+    }
+  },
+  "error": null
+}
+```
+
 # Verify API (for Organization Account)
 
 Web3Connect will support the verification process during the creation of the organization account.
