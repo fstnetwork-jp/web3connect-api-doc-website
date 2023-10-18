@@ -364,6 +364,12 @@
                   <li>
                     <a href="#import-existing-end-user-with-its-email-not-recommended" class="toc-h2 toc-link" data-title="Import Existing End-user with its email (Not recommended)">Import Existing End-user with its email (Not recommended)</a>
                   </li>
+                  <li>
+                    <a href="#import-existing-end-users-with-their-emails-in-batch-submit" class="toc-h2 toc-link" data-title="Import Existing End-users with their emails in batch (Submit)">Import Existing End-users with their emails in batch (Submit)</a>
+                  </li>
+                  <li>
+                    <a href="#import-existing-end-users-with-their-emails-in-batch-check" class="toc-h2 toc-link" data-title="Import Existing End-users with their emails in batch (Check)">Import Existing End-users with their emails in batch (Check)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -646,6 +652,102 @@ https://company.com/abc/def?g=h&amp;userId=xxx&amp;id_wallet_address=0x123456789
     <span class="dl">"</span><span class="s2">id_wallet_address_eth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x....</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">id_wallet_address_suri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5f....</span><span class="dl">"</span>
   <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='import-existing-end-users-with-their-emails-in-batch-submit'>Import Existing End-users with their emails in batch (Submit)</h2>
+<p>This implies that the end-user already knows which email is used for login.</p>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/account/import/batch/submit</code></li>
+<li><strong>No Authorization Header required</strong></li>
+</ul>
+
+<blockquote>
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;API_KEY_SECRET&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">emails</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">abc2@def.com</span><span class="dl">"</span><span class="p">]</span> <span class="c1">// max number of emails in a batch is 10000</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">batch_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Please use the batch_id to poll the result in next method.</p>
+<h2 id='import-existing-end-users-with-their-emails-in-batch-check'>Import Existing End-users with their emails in batch (Check)</h2>
+<p>This implies that the end-user already knows which email is used for login.</p>
+
+<ul>
+<li><code>POST</code></li>
+<li><code>/account/import/batch/check</code></li>
+<li><strong>No Authorization Header required</strong></li>
+</ul>
+
+<blockquote>
+<p>Request Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">api_key_secret</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;API_KEY_SECRET&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">batch_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>(Running) Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">batch_result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">batch_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">finished_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="dl">"</span><span class="s2">started_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">running</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>(Done) Response Body JSON Sample (<code>Content-Type: application/json</code>)</p>
+</blockquote>
+
+<p>There can be <code>&quot;ok&quot;: false</code>, meaning the id-wallet creation with the email was failed.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">batch_result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">batch_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z:W0Bq3p5GpqxQwh4F</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">finished_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:19.389Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc@def.com</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xa20165...</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address_eth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0xa20165...</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address_suri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5DpyvArpUV6H...</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="dl">"</span><span class="s2">email</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc2@def.com</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address_eth</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">id_wallet_address_suri</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">ok</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+        <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">started_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2023-10-18T04:38:18.615Z</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">done</span><span class="dl">"</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
   <span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
 <span class="p">}</span>
 </code></pre></div><h1 id='verify-api-for-organization-account'>Verify API (for Organization Account)</h1>
